@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>José Carlos Malafaia Ferreira Júnior</title>
+
+  <!-- Separação de responsabilidades: CSS externo -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Banca Central</h1>
+
+    <nav aria-label="Navegação principal">
+      <ul>
+        <li><a href="index_refatorado.html" aria-current="page">Home</a></li>
+        <li><a href="produtos.html">Revistas</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section aria-labelledby="sec-revistas">
+      <h2 id="sec-revistas">Nossas Revistas</h2>
+      <p>Temos as principais revistas semanais e mensais disponíveis.</p>
+
+      <figure>
+        <img src="jav329.jpeg" alt="Capa de revista exposta na banca" width="200" />
+        <figcaption>Seleção atual disponível na banca.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="sec-destaque">
+      <h2 id="sec-destaque">Destaque da Semana</h2>
+
+      <article aria-label="Oferta em destaque">
+        <h3>Revista Tecnologia Atual</h3>
+        <p>Preço: <mark>R$ 15,00</mark> a unidade.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <address>
+      Rua Principal, 456 — Telefone:
+      <a href="tel:+5511988888888">(11) 9888-8888</a>
+    </address>
+    <p><small>&copy; 2026 Banca Central. Todos os direitos reservados.</small></p>
+  </footer>
+</body>
+</html>
