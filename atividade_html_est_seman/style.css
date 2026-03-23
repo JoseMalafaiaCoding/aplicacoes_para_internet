@@ -25,10 +25,12 @@ a:hover {
     text-decoration: underline;
 }
 
-a:focus {
+button:focus,input:focus {
     outline: 3px solid #ffeb3b;
     outline-offset: 2px;
 }
+
+
 
 /* Cabeçalho */
 
