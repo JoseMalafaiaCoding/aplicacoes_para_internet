@@ -17,6 +17,14 @@ body {
     padding: 20px;
 }
 
+a {
+    color: #0d47a1;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 a:focus {
     outline: 3px solid #ffeb3b;
     outline-offset: 2px;
