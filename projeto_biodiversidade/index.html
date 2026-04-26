@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>José Carlos Malafaia Ferreira Júnior</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 <header>
+    <div class="header-actions">
+        <button id="btn-tema" aria-pressed="false" title="Alternar modo escuro">🌙</button>
+        <button id="btn-motion" aria-pressed="false" title="Alternar animações">⏸</button>
+    </div>
     <h1>Biodiversidade no Brasil</h1>
     <p>Uma visão geral sobre a riqueza natural dos biomas brasileiros</p>
-    <link rel="stylesheet" href="style.css">
 </header>
 
 <nav>
-    <h2>Navegação</h2>
-    <ul>
+    <h2 class="nav-title">
+        <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">
+            <span></span>
+        </button>
+        Navegação
+    </h2>
+    <ul class="nav-list">
         <li class="nav-links"><a href="#introducao">Introdução</a></li>
         <li><a href="#biomas">Biomas brasileiros</a></li>
         <li><a href="#noticias">Notícias e artigos</a></li>
@@ -158,5 +167,77 @@
     <p>Página desenvolvida por José Carlos Malafaia Ferreira Júnior</p>
 </footer>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var btnTema   = document.getElementById('btn-tema');
+        var btnMotion = document.getElementById('btn-motion');
+        var menuBtn   = document.querySelector('.menu-btn');
+        var navList   = document.querySelector('.nav-list');
+
+        /* Menu hambúrguer: toggle abre/fecha ao clicar no ícone */
+        if (menuBtn && navList) {
+            menuBtn.addEventListener('click', function() {
+                var aberto = navList.classList.contains('nav-open');
+                if (aberto) {
+                    navList.classList.remove('nav-open');
+                    menuBtn.classList.remove('menu-open');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                } else {
+                    navList.classList.add('nav-open');
+                    menuBtn.classList.add('menu-open');
+                    menuBtn.setAttribute('aria-expanded', 'true');
+                }
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 700) {
+                    navList.classList.remove('nav-open');
+                    menuBtn.classList.remove('menu-open');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        /* Tema claro/escuro */
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        var colorSchemeMedia = window.matchMedia('(prefers-color-scheme: dark)');
+        var isLight = !colorSchemeMedia.matches;
+
+        function applyTheme() {
+            document.body.classList.toggle('manual-light', isLight);
+            document.body.classList.toggle('manual-dark', !isLight);
+            btnTema.textContent = isLight ? '🌙' : '☀️';
+            btnTema.setAttribute('aria-pressed', String(!isLight));
+        }
+
+        if (btnTema) {
+            applyTheme();
+            btnTema.addEventListener('click', function() {
+                isLight = !isLight;
+                applyTheme();
+            });
+            // Atualiza o tema se a preferência do sistema mudar
+            colorSchemeMedia.addEventListener('change', function(e) {
+                isLight = !e.matches;
+                applyTheme();
+            });
+        }
+
+        /* Reduzir movimento */
+        if (btnMotion) {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.body.classList.add('manual-reduced-motion');
+                btnMotion.setAttribute('aria-pressed', 'true');
+                btnMotion.textContent = '▶';
+            }
+            btnMotion.addEventListener('click', function() {
+                var reduced = document.body.classList.toggle('manual-reduced-motion');
+                btnMotion.setAttribute('aria-pressed', String(reduced));
+                btnMotion.textContent = reduced ? '▶' : '⏸';
+            });
+        }
+    });
+</script>
 </body>
 </html>
