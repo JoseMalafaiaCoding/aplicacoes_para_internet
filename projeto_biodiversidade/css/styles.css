@@ -1,0 +1,13 @@
+   @import url('variables.css');
+   @import url('base.css');
+   
+   @import url('pages/layout.css');
+   @import url('pages/main.css');
+   
+   @import url('components/header.css');
+   @import url('components/nav.css');
+   @import url('components/footer.css');
+   @import url('components/theme.css');
+   @import url('components/animations.css');
+   
+   @import url('utilities.css');

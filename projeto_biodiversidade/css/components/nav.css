@@ -1,0 +1,115 @@
+/* Cabeçalho */
+
+header {
+    grid-area: header;
+    background-color: #2e7d32;
+    color: white;
+    padding: var(--space-sm);
+    gap: var(--space-sm);
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+
+
+/* --- MENU HAMBURGUER CSS --- */
+
+.nav-links{
+
+}
+
+nav {
+    grid-area: nav;
+    position: sticky;
+    top: 0;
+    background-color: #e8f5e9;
+    padding: var(--space-sm);
+    border-radius: 8px;
+    margin-bottom: var(--space-md);
+    width: 100%;
+    align-self: start;
+    box-sizing: border-box;
+    transition: background 0.3s;
+}
+
+.nav-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 1.2em;
+    margin-bottom: var(--space-xs);
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    background: #2e7d32;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-btn span {
+    position: relative;
+    display: block;
+    background: #fff;
+    height: 3px;
+    width: 22px;
+    border-radius: 2px;
+    transition: background 0.3s;
+}
+.menu-btn span::before,
+.menu-btn span::after {
+    content: '';
+    display: block;
+    background: #fff;
+    height: 3px;
+    width: 22px;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s;
+}
+.menu-btn span::before { top: -7px; }
+.menu-btn span::after  { top:  7px; }
+
+/* Vira X quando aberto */
+.menu-btn.menu-open span            { background: transparent; }
+.menu-btn.menu-open span::before    { transform: translateY(7px) rotate(45deg); }
+.menu-btn.menu-open span::after     { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: max-height 0.3s ease, opacity 0.2s, visibility 0.2s;
+}
+.nav-list.nav-open {
+    max-height: 500px;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+.nav-list li { margin-bottom: var(--space-xs); }
+.nav-list a {
+    display: block;
+    text-decoration: none;
+    color: #1b5e20;
+    font-weight: bold;
+    margin-bottom: var(--space-sm);
+}
+.nav-list a:hover { text-decoration: underline; }

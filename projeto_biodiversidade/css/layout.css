@@ -1,0 +1,74 @@
+header {
+    grid-area: header;
+    background-color: #2e7d32;
+    color: white;
+    padding: var(--space-sm);
+    gap: var(--space-sm);
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+nav {
+    grid-area: nav;
+    position: sticky;
+    top: 0;
+    background-color: #e8f5e9;
+    padding: var(--space-sm);
+    border-radius: 8px;
+    margin-bottom: var(--space-md);
+    width: 100%;
+    align-self: start;
+    box-sizing: border-box;
+    transition: background 0.3s;
+}
+
+main {
+    grid-area: main;
+    gap: var(--space-md);
+    padding: var(--space-sm);
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+footer {
+    grid-area: footer;
+    margin-top: var(--space-lg);
+    text-align: center;
+    padding: var(--space-md);
+    background-color: #2e7d32;
+    color: white;
+    border-radius: 8px;
+}
+
+/* ── TABLET: >= 768px ─────────────────────────────── */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row; /* logo e nav lado a lado */
+        justify-content: space-between;
+        padding: var(--space-sm) var(--space-lg);
+    }
+    main {
+    /* Layout com sidebar: sidebar 240px + conteúdo principal */
+        grid-template-columns: 240px 1fr;
+        grid-template-areas:
+            "sidebar main"
+            "sidebar main";
+        padding: var(--space-md) var(--space-lg);
+    }
+    .sidebar { grid-area: sidebar; }
+    .content { grid-area: main; }
+    }
+    /* ── DESKTOP: >= 1024px ───────────────────────────── */
+    @media (min-width: 1024px) {
+    main {
+        grid-template-columns: 280px 1fr 220px; /* sidebar + main + aside */
+        grid-template-areas: "sidebar main aside";
+    }
+        .aside { grid-area: aside; }
+    }

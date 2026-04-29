@@ -1,0 +1,51 @@
+/* Tema escuro manual (além do prefers-color-scheme) */
+body.manual-dark, body.manual-dark header, body.manual-dark footer {
+    background-color: #181c18 !important;
+    color: #e0f2f1 !important;
+}
+
+body.manual-dark header, body.manual-dark footer {
+    background-color: #1b5e20 !important;
+    color: #fff !important;
+}
+
+body.manual-dark nav {
+    background-color: #263238 !important;
+}
+
+body.manual-dark article {
+    background-color: #222b22 !important;
+    border-left-color: #66bb6a !important;
+}
+
+body.manual-dark section h2 {
+    color: #66bb6a !important;
+    border-bottom-color: #388e3c !important;
+}
+
+body.manual-dark a, body.manual-dark .nav-list a, body.manual-dark article a {
+    color: #90caf9 !important;
+}
+
+/* Light mode manual — sobrescreve dark do sistema */
+body.manual-light { background-color: #f4f7f4 !important; color: #333 !important; }
+body.manual-light header,
+body.manual-light footer  { background-color: #2e7d32 !important; color: #fff !important; }
+body.manual-light nav     { background-color: #e8f5e9 !important; }
+body.manual-light article { background-color: #fff !important; border-left-color: #4caf50 !important; }
+body.manual-light article h3 { color: #1b5e20 !important; }
+body.manual-light section h2 { color: #2e7d32 !important; border-bottom-color: #c8e6c9 !important; }
+body.manual-light a,
+body.manual-light .nav-list a { color: #1b5e20 !important; }
+body.manual-light article a   { color: #1565c0 !important; }
+body.manual-light .header-actions button { background: #fff !important; color: #2e7d32 !important; border-color: #2e7d32 !important; }
+body.manual-light .header-actions button[aria-pressed="true"] { background: #2e7d32 !important; color: #fff !important; border-color: #fff200 !important; }
+
+/* Reduzir movimento manual */
+body.manual-reduced-motion *,
+body.manual-reduced-motion *::before,
+body.manual-reduced-motion *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+}
