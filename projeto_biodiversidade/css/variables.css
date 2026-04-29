@@ -1,6 +1,7 @@
-/* Reset básico */
-
 :root {
+    --font-titulo: 'Merriweather', Georgia, serif;
+    --font-corpo:  'Source Sans 3', Arial, sans-serif;
+
     /* Espaçamento fluido com clamp() */
     --space-xs: clamp(0.25rem, 1vw, 0.75rem);
     --space-sm: clamp(0.5rem, 2vw, 1.25rem);
