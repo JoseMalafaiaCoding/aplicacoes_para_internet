@@ -13,8 +13,8 @@
 </head>
 
 <body>
-<header>
-    <div class="header-actions">
+<header class="hero">
+    <div class="header__actions">
         <button id="btn-tema" aria-pressed="false" title="Alternar modo escuro">🌙</button>
         <button id="btn-motion" aria-pressed="false" title="Alternar animações">⏸</button>
     </div>
@@ -23,13 +23,13 @@
 </header>
 
 <nav>
-    <h2 class="nav-title">
-        <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">
+    <h2 class="nav__title">
+        <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false">
             <span></span>
         </button>
-        Navegação
+         Navegação
     </h2>
-    <ul class="nav-list">
+    <ul class="nav__list">
         <li class="nav-links"><a href="#introducao">Introdução</a></li>
         <li><a href="#biomas">Biomas brasileiros</a></li>
         <li><a href="#noticias">Notícias e artigos</a></li>
@@ -39,8 +39,8 @@
 
 <main>
 
-<section id="introducao">
-    <h2>Introdução</h2>
+<section id="introducao" class="section">
+    <h2 class="section__title">Introdução</h2>
     <p>
         O Brasil é considerado o país com maior biodiversidade do planeta. O território brasileiro
         abriga mais de 124 mil espécies de fauna e cerca de 44 mil espécies de flora conhecidas,
@@ -56,41 +56,72 @@
 </section>
 
 
-<section id="biomas">
-    <h2>Principais biomas do Brasil</h2>
+<section id="biomas" class="section">
+    <h2 class="section__title">Principais biomas do Brasil</h2>
 
-    <article>
-        <h3>Amazônia</h3>
-        <p>
-            A Amazônia é a maior floresta tropical do mundo e um dos ecossistemas mais
-            biodiversos da Terra. Milhões de espécies vivem na região, incluindo milhares
-            de espécies de plantas, peixes, aves e mamíferos.
-        </p>
-    </article>
+    <div class="cards-grid">
 
-    <article>
-        <h3>Mata Atlântica</h3>
-        <p>
-            A Mata Atlântica é considerada um dos hotspots de biodiversidade do planeta,
-            possuindo grande quantidade de espécies endêmicas. No entanto, grande parte
-            de sua vegetação original já foi perdida devido à expansão urbana e agrícola.
-        </p>
-    </article>
+        <article class="card card--featured">
+            <h3 class="card__title">Amazônia</h3>
+            <p class="card__body">
+                A Amazônia é a maior floresta tropical do mundo e um dos ecossistemas mais
+                biodiversos da Terra. Milhões de espécies vivem na região, incluindo milhares
+                de espécies de plantas, peixes, aves e mamíferos.
+            </p>
+        </article>
 
-    <article>
-        <h3>Cerrado</h3>
-        <p>
-            O Cerrado é a maior savana da América do Sul e possui enorme diversidade
-            biológica, sendo considerado um dos biomas mais importantes para a conservação
-            de espécies no planeta.
-        </p>
-    </article>
+        <article class="card">
+            <h3 class="card__title">Mata Atlântica</h3>
+            <p class="card__body">
+                A Mata Atlântica é considerada um dos hotspots de biodiversidade do planeta,
+                possuindo grande quantidade de espécies endêmicas. No entanto, grande parte
+                de sua vegetação original já foi perdida devido à expansão urbana e agrícola.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3 class="card__title">Cerrado</h3>
+            <p class="card__body">
+                O Cerrado é a maior savana da América do Sul e possui enorme diversidade
+                biológica, sendo considerado um dos biomas mais importantes para a conservação
+                de espécies no planeta.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3 class="card__title">Caatinga</h3>
+            <p class="card__body">
+                A Caatinga é o único bioma exclusivamente brasileiro, caracterizado por vegetação
+                adaptada à seca. Abriga espécies únicas de fauna e flora capazes de sobreviver
+                em condições de baixa precipitação e calor intenso.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3 class="card__title">Pantanal</h3>
+            <p class="card__body">
+                O Pantanal é a maior planície alagável do mundo e considerado um dos ecossistemas
+                mais ricos em biodiversidade do planeta, abrigando onças-pintadas, capivaras,
+                tuiuiús e centenas de espécies de aves e peixes.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3 class="card__title">Pampa</h3>
+            <p class="card__body">
+                O Pampa é formado por extensas planícies e campos nativos no sul do Brasil.
+                Possui grande diversidade de gramíneas e plantas herbáceas, além de ser habitat
+                de espécies características como o veado-campeiro e diversas aves migratórias.
+            </p>
+        </article>
+
+    </div>
 
 </section>
 
 
-<section id="noticias">
-    <h2>Notícias e artigos sobre biodiversidade</h2>
+<section id="noticias" class="section">
+    <h2 class="section__title">Notícias e artigos sobre biodiversidade</h2>
 
     <article>
         <h3>Estratégias para proteger a biodiversidade brasileira</h3>
@@ -130,120 +161,67 @@
 
 </section>
 
-<section>
-    <h2>Vídeo sobre biodiversidade</h2>
-
-    <video controls width="600">
-        <source src="biodiversidade.mp4" type="video/mp4">
-        <track src="legendas.vtt" kind="subtitles" srclang="pt" label="Português">
-        Seu navegador não suporta vídeo.
-    </video>
+<section class="section">
+    <h2 class="section__title">Vídeo sobre biodiversidade</h2>
+    <div class="video-wrapper">
+        <video controls width="600">
+            <source src="biodiversidade.mp4" type="video/mp4">
+            <track src="legendas.vtt" kind="subtitles" srclang="pt" label="Português">
+            Seu navegador não suporta vídeo.
+        </video>
+    </div>
 </section>
 
-<section>
-    <h2>Contato</h2>
+<section class="section">
+    <h2 class="section__title">Contato</h2>
     <form action="sucesso.html">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" pattern="[A-Za-z ]+" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
+        <div class="form-group">
+            <label class="form-label" for="nome">Nome:</label>
+            <input class="form-input" type="text" id="nome" name="nome" pattern="[A-Za-z ]+" required placeholder=" ">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="email">Email:</label>
+            <input class="form-input" type="email" id="email" name="email" required placeholder=" ">
+        </div>
         <button type="submit">Enviar</button>
     </form>
 </section>
 
-<section id="referencias">
-    <h2>Referências</h2>
-    <p>
-        Ministério do Meio Ambiente – Biodiversidade e Biomas
-    </p>
-    <p>
-        World Wildlife Fund – Amazon Biodiversity
-    </p>
-    <p>
-        Mongabay – Environmental News on Brazil’s biodiversity
-    </p>
+<section id="referencias" class="section">
+    <h2 class="section__title">Referências</h2>
+    <ul class="ref-list">
+        <li>Ministério do Meio Ambiente – Biodiversidade e Biomas</li>
+        <li>World Wildlife Fund – Amazon Biodiversity</li>
+        <li>Mongabay – Environmental News on Brazil's biodiversity</li>
+    </ul>
 </section>
 
 </main>
 
-<footer>
-    <p>Página desenvolvida por José Carlos Malafaia Ferreira Júnior e Marcio Souto Maior Sousa
-    </p>
+<footer class="footer">
+    <div class="footer__grid">
+
+        <div class="footer__col">
+            <h3 class="footer__title">Biodiversidade no Brasil</h3>
+            <p class="footer__desc">Uma visão geral sobre a riqueza natural dos biomas brasileiros, seus ecossistemas e a importância da sua preservação.</p>
+        </div>
+
+        <div class="footer__col">
+            <h4 class="footer__heading">Fontes</h4>
+            <ul class="footer__links">
+                <li><a href="https://www.gov.br/mma/pt-br/assuntos/biodiversidade-e-biomas" target="_blank">MMA – Biodiversidade</a></li>
+                <li><a href="https://www.worldwildlife.org/places/amazon" target="_blank">WWF – Amazon</a></li>
+                <li><a href="https://news.mongabay.com" target="_blank">Mongabay</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer__bottom">
+        <p>&copy; <span id="footer-year"></span> José Carlos Malafaia &amp; Marcio Souto. Todos os direitos reservados.</p>
+    </div>
 </footer>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var btnTema   = document.getElementById('btn-tema');
-        var btnMotion = document.getElementById('btn-motion');
-        var menuBtn   = document.querySelector('.menu-btn');
-        var navList   = document.querySelector('.nav-list');
-
-        /* Menu hambúrguer: toggle abre/fecha ao clicar no ícone */
-        if (menuBtn && navList) {
-            menuBtn.addEventListener('click', function() {
-                var aberto = navList.classList.contains('nav-open');
-                if (aberto) {
-                    navList.classList.remove('nav-open');
-                    menuBtn.classList.remove('menu-open');
-                    menuBtn.setAttribute('aria-expanded', 'false');
-                } else {
-                    navList.classList.add('nav-open');
-                    menuBtn.classList.add('menu-open');
-                    menuBtn.setAttribute('aria-expanded', 'true');
-                }
-            });
-
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 700) {
-                    navList.classList.remove('nav-open');
-                    menuBtn.classList.remove('menu-open');
-                    menuBtn.setAttribute('aria-expanded', 'false');
-                }
-            });
-        }
-
-        /* Tema claro/escuro */
-        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        var colorSchemeMedia = window.matchMedia('(prefers-color-scheme: dark)');
-        var isLight = !colorSchemeMedia.matches;
-
-        function applyTheme() {
-            document.body.classList.toggle('manual-light', isLight);
-            document.body.classList.toggle('manual-dark', !isLight);
-            btnTema.textContent = isLight ? '🌙' : '☀️';
-            btnTema.setAttribute('aria-pressed', String(!isLight));
-        }
-
-        if (btnTema) {
-            applyTheme();
-            btnTema.addEventListener('click', function() {
-                isLight = !isLight;
-                applyTheme();
-            });
-            // Atualiza o tema se a preferência do sistema mudar
-            colorSchemeMedia.addEventListener('change', function(e) {
-                isLight = !e.matches;
-                applyTheme();
-            });
-        }
-
-        /* Reduzir movimento */
-        if (btnMotion) {
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.body.classList.add('manual-reduced-motion');
-                btnMotion.setAttribute('aria-pressed', 'true');
-                btnMotion.textContent = '▶';
-            }
-            btnMotion.addEventListener('click', function() {
-                var reduced = document.body.classList.toggle('manual-reduced-motion');
-                btnMotion.setAttribute('aria-pressed', String(reduced));
-                btnMotion.textContent = reduced ? '▶' : '⏸';
-            });
-        }
-    });
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>

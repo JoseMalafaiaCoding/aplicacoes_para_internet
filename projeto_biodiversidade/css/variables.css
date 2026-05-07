@@ -2,26 +2,70 @@
     --font-titulo: 'Merriweather', Georgia, serif;
     --font-corpo:  'Source Sans 3', Arial, sans-serif;
 
-    /* Espaçamento fluido com clamp() */
     --space-xs: clamp(0.25rem, 1vw, 0.75rem);
     --space-sm: clamp(0.5rem, 2vw, 1.25rem);
     --space-md: clamp(1rem, 3vw, 2rem);
     --space-lg: clamp(1.5rem, 5vw, 3rem);
     --space-xl: clamp(2rem, 7vw, 4rem);
-    /* Tipografia fluida */
+
     --fs-base: clamp(0.875rem, 2vw, 1rem);
     --fs-h1: clamp(1.75rem, 4vw, 2.5rem);
     --fs-h2: clamp(1.25rem, 3vw, 1.875rem);
-}
-body {
-font-size: var(--fs-base);
-line-height: 1.6;
-}
-h1 { font-size: var(--fs-h1); }
-h2 { font-size: var(--fs-h2); }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --color-primary-100: #DBEAFE;
+    --color-primary-200: #BFDBFE;
+    --color-primary-300: #93C5FD;
+    --color-primary-400: #60A5FA;
+    --color-primary-500: #2E75B6;
+    --color-primary-600: #2563EB;
+    --color-primary-700: #1D4ED8;
+    --color-primary-800: #1E40AF;
+    --color-primary-900: #1E3A8A;
+
+    --color-neutral-50:  #F9FAFB;
+    --color-neutral-100: #F3F4F6;
+    --color-neutral-200: #E5E7EB;
+    --color-neutral-300: #D1D5DB;
+    --color-neutral-400: #9CA3AF;
+    --color-neutral-500: #6B7280;
+    --color-neutral-600: #4B5563;
+    --color-neutral-700: #374151;
+    --color-neutral-800: #1F2937;
+    --color-neutral-900: #111827;
+
+    --color-success: #16A34A;
+    --color-warning: #D97706;
+    --color-error:   #DC2626;
+    --color-info:    #0891B2;
+
+    --radius-sm:   4px;
+    --radius-md:   8px;
+    --radius-lg:   12px;
+    --radius-full: 9999px;
+
+    --shadow-sm:  0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md:  0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+    --shadow-lg:  0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+    --shadow-xl:  0 20px 25px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.04);
+
+    --z-base:    0;
+    --z-dropdown: 100;
+    --z-sticky:   200;
+    --z-fixed:    300;
+    --z-modal:    400;
+    --z-toast:    500;
+
+    --color-text-primary:  #111827;
+    --color-bg-primary:    #f4f7f4;
+    --color-bg-secondary:  #e8f5e9;
+    --color-border:        #c8e6c9;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text-primary:  #F9FAFB;
+        --color-bg-primary:    #111827;
+        --color-bg-secondary:  #1F2937;
+        --color-border:        #374151;
+    }
 }

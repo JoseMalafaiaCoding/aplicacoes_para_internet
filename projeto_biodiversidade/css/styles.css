@@ -1,13 +1,25 @@
-   @import url('variables.css');
-   @import url('base.css');
-   
-   @import url('pages/layout.css');
-   @import url('pages/main.css');
-   
-   @import url('components/header.css');
-   @import url('components/nav.css');
-   @import url('components/footer.css');
-   @import url('components/theme.css');
-   @import url('components/animations.css');
-   
-   @import url('utilities.css');
+/* 1. Settings */
+@import url('variables.css');
+
+/* 2. Generic */
+@import url('reset.css');
+
+/* 3. Elements */
+@import url('base.css');
+
+/* 4. Objects */
+@import url('layout.css');
+
+/* 5. Components */
+@import url('pages/main.css');
+@import url('components/header.css');
+@import url('components/nav.css');
+@import url('components/footer.css');
+@import url('components/card.css');
+@import url('components/btn.css');
+@import url('components/hero.css');
+@import url('components/animations.css');
+
+/* 6. Utilities / Trumps */
+@import url('utilities.css');
+@import url('components/theme.css');

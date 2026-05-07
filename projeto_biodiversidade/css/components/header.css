@@ -1,4 +1,19 @@
-/* Header actions (botões de tema e animação) */
+header {
+    grid-area: header;
+    position: relative;
+    background-color: #2e7d32;
+    color: white;
+    padding: var(--space-sm);
+    gap: var(--space-sm);
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
 .header-actions {
     position: absolute;
     top: var(--space-xs);
@@ -7,7 +22,8 @@
     gap: var(--space-xs);
     z-index: 300;
 }
-.header-actions button {
+
+.header__actions button {
     background: #fff;
     color: #2e7d32;
     border: 2px solid #2e7d32;
@@ -18,17 +34,16 @@
     transition: background 0.2s, color 0.2s, border 0.2s;
     box-shadow: 0 1px 4px #0001;
 }
-.header-actions button[aria-pressed="true"] {
+
+.header__actions button[aria-pressed="true"] {
     background: #2e7d32;
     color: #fff;
     border-color: #fff200;
 }
+
 @media (max-width: 700px) {
-    .header-actions {
+    .header__actions {
         right: var(--space-sm);
         top: var(--space-sm);
     }
-}
-header {
-    position: relative;
 }
