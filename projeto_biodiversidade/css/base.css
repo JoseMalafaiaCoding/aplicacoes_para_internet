@@ -9,7 +9,6 @@ body {
     font-family: var(--font-body);
     line-height: var(--line-height-body);
     background-color: var(--color-background-page);
-    /* color: #ff0000; */
     padding: var(--spacing-page);
     margin: 0;
     transition: background var(--transition-theme), color var(--transition-theme);
