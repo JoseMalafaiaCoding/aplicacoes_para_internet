@@ -6,13 +6,13 @@ body {
         "nav"
         "main"
         "footer";
-    font-family: var(--font-corpo);
-    line-height: 1.6;
-    background-color: #f4f7f4;
-    color: #333;
-    padding: var(--space-md);
+    font-family: var(--font-body);
+    line-height: var(--line-height-body);
+    background-color: var(--color-background-page);
+    /* color: #ff0000; */
+    padding: var(--spacing-page);
     margin: 0;
-    transition: background 0.3s, color 0.3s;
+    transition: background var(--transition-theme), color var(--transition-theme);
 }
 
 @media (min-width: 768px) {
@@ -26,12 +26,12 @@ body {
 }
 
 h1, h2, h3 {
-    font-family: var(--font-titulo);
-    font-weight: 700;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-heading);
 }
 
 a {
-    color: #0d47a1;
+    color: var(--color-link-default);
 }
 
 a:hover {

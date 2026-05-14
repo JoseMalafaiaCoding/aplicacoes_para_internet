@@ -1,16 +1,252 @@
+/* =========================================================
+   DESIGN TOKENS — SISTEMA VISUAL DO PROJETO
+
+   Convenção adotada:
+   O projeto utiliza Design Tokens organizados em dois níveis:
+   variáveis primitivas e variáveis semânticas.
+
+   1. TOKENS PRIMITIVOS
+   Representam valores visuais brutos e reutilizáveis,
+   sem significado contextual direto.
+
+   Exemplos:
+   --green-700
+   --space-md
+   --radius-sm
+   --font-size-base
+
+   Esses tokens definem:
+   - cores-base
+   - espaçamentos
+   - tipografia
+   - bordas
+   - sombras
+   - transições
+   - dimensões de layout
+
+   2. TOKENS SEMÂNTICOS
+   Representam o PAPEL do elemento na interface,
+   abstraindo os valores primitivos.
+
+   Exemplos:
+   --color-background-header
+   --color-text-primary
+   --spacing-section
+   --transition-button
+
+   Os tokens semânticos consomem os tokens primitivos
+   utilizando var().
+
+   Exemplo:
+   --color-background-header: var(--green-700);
+
+   Objetivos da arquitetura:
+   - padronização visual
+   - reutilização
+   - manutenção simplificada
+   - escalabilidade
+   - suporte facilitado a temas
+   - consistência de acessibilidade
+
+   Estrutura adotada:
+   1. Cores primitivas
+   2. Tipografia primitiva
+   3. Espaçamentos primitivos
+   4. Bordas e raios
+   5. Sombras
+   6. Transições
+   7. Layout
+
+   8. Cores semânticas
+   9. Tipografia semântica
+   10. Espaçamentos semânticos
+   11. Bordas semânticas
+   12. Sombras semânticas
+   13. Transições semânticas
+   14. Layout semântico
+
+   Metodologia:
+   - CSS Custom Properties
+   - Mobile First
+   - Naming semântico
+   - Organização inspirada em Design Systems
+   - Compatível com arquitetura ITCSS/BEM
+
+========================================================= */
+
 :root {
     --font-titulo: 'Merriweather', Georgia, serif;
     --font-corpo:  'Source Sans 3', Arial, sans-serif;
 
+    /* --space-xs: clamp(0.25rem, 1vw, 0.75rem);
+    --space-sm: clamp(0.5rem, 2vw, 1.25rem);
+    --space-md: clamp(1rem, 3vw, 2rem);
+    --space-lg: clamp(1.5rem, 5vw, 3rem);
+    --space-xl: clamp(2rem, 7vw, 4rem); */
+
+    --fs-base: clamp(0.875rem, 2vw, 1rem);
+    --fs-h1: clamp(1.75rem, 4vw, 2.5rem);
+    --fs-h2: clamp(1.25rem, 3vw, 1.875rem);
+
+    --green-50: #f4f7f4;
+    --green-100: #e8f5e9;
+    --green-300: #81c784;
+    --green-500: #4caf50;
+    --green-700: #2e7d32;
+    --green-900: #1b5e20;
+
+    --blue-500: #1565c0;
+    --blue-700: #0d47a1;
+
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-100: #d1d5db;
+    --gray-100: #333333;
+    --gray-100: #181c18;
+
+    --white: #ffffff;
+    --black: #000000;
+
+    --yellow-400: #ffeb3b;
+
+    --font-family-base: 'Source Sans 3', Arial, sans-serif;
+    --font-family-header: 'Merriweather', Georgia, serif;
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-md: 1.25rem;
+    --font-size-lg: 1.5rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 2.5rem;
+
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+
+    --line-height-base: 1.6;
+    
     --space-xs: clamp(0.25rem, 1vw, 0.75rem);
     --space-sm: clamp(0.5rem, 2vw, 1.25rem);
     --space-md: clamp(1rem, 3vw, 2rem);
     --space-lg: clamp(1.5rem, 5vw, 3rem);
     --space-xl: clamp(2rem, 7vw, 4rem);
 
-    --fs-base: clamp(0.875rem, 2vw, 1rem);
-    --fs-h1: clamp(1.75rem, 4vw, 2.5rem);
-    --fs-h2: clamp(1.25rem, 3vw, 1.875rem);
+    --border-width-sm: 1px;
+    --border-width-md: 2px;
+    --border-width-lg: 5px;
+
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+
+    --container-max-width: 1200px;
+    --sidebar-width: 220px;
+    --sidebar-width-fluid: minmax(180px, 20vw);
+
+    /* =========================
+       CORES SEMÂNTICAS
+    ========================= */
+
+    --color-background-page: var(--green-50);
+    --color-background-surface: var(--white);
+    --color-background-nav: var(--green-100);
+    --color-background-header: var(--green-700);
+    --color-background-footer: #111827;
+
+    --color-text-primary: var(--gray-700);
+    --color-text-light: var(--white);
+    --color-text-heading: var(--green-700);
+    --color-text-heading-dark: var(--green-900);
+
+    --color-border-default: var(--green-100);
+    --color-border-highlight: var(--green-500);
+    --color-border-focus: var(--yellow-400);
+
+    --color-link-default: var(--blue-700);
+    --color-link-article: var(--blue-500);
+
+    --color-action-primary: var(--green-700);
+    --color-action-primary-text: var(--white);
+
+    --color-success: var(--green-700);
+    --color-warning: var(--yellow-400);
+    --color-info: var(--blue-500);
+    --color-danger: #c62828;
+
+
+    /* =========================
+       TIPOGRAFIA SEMÂNTICA
+    ========================= */
+
+    --font-body: var(--font-family-base);
+    --font-heading: var(--font-family-header);
+
+    --font-size-body: var(--font-size-base);
+    --font-size-title-page: var(--font-size-xxl);
+    --font-size-title-section: var(--font-size-xl);
+    --font-size-title-card: var(--font-size-md);
+
+    --font-weight-body: var(--font-weight-regular);
+    --font-weight-heading: var(--font-weight-bold);
+
+    --line-height-body: var(--line-height-base);
+
+
+    /* =========================
+       ESPAÇAMENTOS SEMÂNTICOS
+    ========================= */
+
+    --spacing-page: var(--space-md);
+    --spacing-section: var(--space-sm);
+    --spacing-card: var(--space-sm);
+    --spacing-header: var(--space-sm);
+    --spacing-footer: var(--space-md);
+    --spacing-nav: var(--space-xs);
+    --spacing-form-gap: var(--space-sm);
+
+
+    /* =========================
+       BORDAS SEMÂNTICAS
+    ========================= */
+
+    --radius-surface: var(--radius-md);
+    --radius-card: var(--radius-sm);
+    --radius-button: var(--radius-sm);
+
+    --border-card-highlight: var(--border-width-lg) solid var(--color-border-highlight);
+    --border-focus: var(--border-width-md) solid var(--color-border-focus);
+
+
+    /* =========================
+       SOMBRAS SEMÂNTICAS
+    ========================= */
+
+    --shadow-button: var(--shadow-sm);
+    --shadow-card: var(--shadow-sm);
+
+
+    /* =========================
+       TRANSIÇÕES SEMÂNTICAS
+    ========================= */
+
+    --transition-theme: var(--transition-base);
+    --transition-menu: var(--transition-base);
+    --transition-button: var(--transition-fast);
+
+
+    /* =========================
+       LAYOUT SEMÂNTICO
+    ========================= */
+
+    --layout-sidebar-width: var(--sidebar-width);
+    --layout-sidebar-fluid: var(--sidebar-width-fluid);
+    --layout-container-max: var(--container-max-width);
 
     --color-primary-100: #DBEAFE;
     --color-primary-200: #BFDBFE;
@@ -59,6 +295,7 @@
     --color-bg-primary:    #f4f7f4;
     --color-bg-secondary:  #e8f5e9;
     --color-border:        #c8e6c9;
+
 }
 
 @media (prefers-color-scheme: dark) {

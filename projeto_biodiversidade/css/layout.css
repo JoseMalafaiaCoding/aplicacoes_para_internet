@@ -1,55 +1,61 @@
 header {
     grid-area: header;
-    background-color: #2e7d32;
-    color: white;
-    padding: var(--space-sm);
-    gap: var(--space-sm);
+    background-color: var(--color-background-header);
+    color: var(--color-text-light);
+    padding: var(--spacing-header);
+    gap: var(--spacing-header);
     text-align: center;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    border-radius: var(--radius-surface);
+    margin-bottom: var(--spacing-nav);
+    transition: background-color var(--transition-theme), color var(--transition-theme);
 }
 
 header h1 {
-    margin-bottom: 10px;
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-heading);
+    font-size: var(--font-size-title-page);
+    font-weight: var(--font-weight-heading);
+    line-height: var(--line-height-body);
 }
 
 nav {
     grid-area: nav;
     position: sticky;
     top: 0;
-    background-color: #e8f5e9;
-    padding: var(--space-sm);
-    border-radius: 8px;
-    margin-bottom: var(--space-md);
+    background-color: var(--color-background-nav);
+    padding: var(--spacing-nav);
+    border-radius: var(--radius-surface);
+    margin-bottom: var(--spacing-section);
     width: 100%;
     align-self: start;
     box-sizing: border-box;
-    transition: background 0.3s;
+    transition: background-color var(--transition-menu), color var(--transition-menu);
 }
 
 main {
     grid-area: main;
-    gap: var(--space-md);
-    padding: var(--space-sm);
+    gap: var(--spacing-section);
+    padding: var(--spacing-card);
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--layout-container-max);
     margin-inline: auto;
 }
 
 footer {
     grid-area: footer;
-    margin-top: var(--space-lg);
+    margin-top: var(--spacing-section);
     text-align: center;
-    padding: var(--space-md);
-    background-color: #2e7d32;
-    color: white;
-    border-radius: 8px;
+    padding: var(--spacing-footer);
+    background-color: var(--color-background-footer);
+    color: var(--color-text-light);
+    border-radius: var(--radius-surface);
+    transition: background-color var(--transition-theme), color var(--transition-theme);
 }
 
 .cards-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-md);
+    gap: var(--spacing-section);
 }
 
 @media (min-width: 768px) {
@@ -70,9 +76,10 @@ footer {
 
 @media (min-width: 768px) {
     header {
-        padding: var(--space-sm) var(--space-lg);
+        padding: var(--spacing-header) var(--space-lg);
     }
+
     main {
-        padding: var(--space-md) var(--space-lg);
+        padding: var(--spacing-section) var(--space-lg);
     }
 }
