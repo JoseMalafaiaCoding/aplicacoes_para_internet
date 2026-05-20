@@ -9,11 +9,12 @@
         transform var(--transition-button);
 }
 
-.card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
+@media (hover: hover) and (pointer: fine) {
+    .card:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-4px);
+    }
 }
-
 .card__title {
     font-family: var(--font-heading);
     color: var(--color-text-heading-dark);

@@ -19,23 +19,25 @@ button[type="submit"],
     border: var(--border-width-md) solid var(--color-action-primary);
 }
 
-button[type="submit"]:hover,
-.btn--primary:hover {
-    background-color: var(--color-text-heading-dark);
-    border-color: var(--color-text-heading-dark);
+@media (hover: hover) and (pointer: fine) {
+    button[type="submit"]:hover,
+    .btn--primary:hover {
+        background-color: var(--color-text-heading-dark);
+        border-color: var(--color-text-heading-dark);
+    }
 }
-
 .btn--outline {
     background-color: transparent;
     color: var(--color-action-primary);
     border: var(--border-width-md) solid var(--color-action-primary);
 }
 
-.btn--outline:hover {
-    background-color: var(--color-action-primary);
-    color: var(--color-action-primary-text);
+@media (hover: hover) and (pointer: fine) {
+    .btn--outline:hover {
+        background-color: var(--color-action-primary);
+        color: var(--color-action-primary-text);
+    }
 }
-
 button:focus-visible,
 .btn:focus-visible {
     outline: var(--border-focus);

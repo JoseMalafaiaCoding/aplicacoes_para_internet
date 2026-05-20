@@ -32,8 +32,9 @@
     text-decoration: none;
     transition: background 0.2s, color 0.2s;
 }
-
-.hero__cta:hover {
-    background-color: #e8f5e9;
-    text-decoration: none;
+@media (hover: hover) and (pointer: fine) {
+    .hero__cta:hover {
+        background-color: #e8f5e9;
+        text-decoration: none;
+    }
 }

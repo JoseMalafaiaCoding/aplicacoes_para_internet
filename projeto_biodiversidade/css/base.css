@@ -10,7 +10,9 @@ body {
     line-height: var(--line-height-body);
     background-color: var(--color-background-page);
     padding: var(--spacing-page);
-    margin: 0;
+    margin: 0 auto;
+    max-width: var(--layout-max-width);
+    width: 100%;
     transition: background var(--transition-theme), color var(--transition-theme);
 }
 
@@ -24,6 +26,12 @@ body {
     }
 }
 
+@media (min-width: 1024px) {
+    body {
+        grid-template-columns: var(--sidebar-width-lg) 1fr;
+    }
+}
+
 h1, h2, h3 {
     font-family: var(--font-heading);
     font-weight: var(--font-weight-heading);
@@ -31,12 +39,18 @@ h1, h2, h3 {
 
 a {
     color: var(--color-link-default);
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    min-width: 44px;
+    text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+@media (hover: hover) and (pointer: fine) {
+    a:hover {
+        text-decoration: underline;
+    }
 }
-
 button:focus,
 input:focus {
     outline: 3px solid #ffeb3b;

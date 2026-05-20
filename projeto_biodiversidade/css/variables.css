@@ -1,308 +1,175 @@
-/* =========================================================
-   DESIGN TOKENS — SISTEMA VISUAL DO PROJETO
-
-   Convenção adotada:
-   O projeto utiliza Design Tokens organizados em dois níveis:
-   variáveis primitivas e variáveis semânticas.
-
-   1. TOKENS PRIMITIVOS
-   Representam valores visuais brutos e reutilizáveis,
-   sem significado contextual direto.
-
-   Exemplos:
-   --green-700
-   --space-md
-   --radius-sm
-   --font-size-base
-
-   Esses tokens definem:
-   - cores-base
-   - espaçamentos
-   - tipografia
-   - bordas
-   - sombras
-   - transições
-   - dimensões de layout
-
-   2. TOKENS SEMÂNTICOS
-   Representam o PAPEL do elemento na interface,
-   abstraindo os valores primitivos.
-
-   Exemplos:
-   --color-background-header
-   --color-text-primary
-   --spacing-section
-   --transition-button
-
-   Os tokens semânticos consomem os tokens primitivos
-   utilizando var().
-
-   Exemplo:
-   --color-background-header: var(--green-700);
-
-   Objetivos da arquitetura:
-   - padronização visual
-   - reutilização
-   - manutenção simplificada
-   - escalabilidade
-   - suporte facilitado a temas
-   - consistência de acessibilidade
-
-   Estrutura adotada:
-   1. Cores primitivas
-   2. Tipografia primitiva
-   3. Espaçamentos primitivos
-   4. Bordas e raios
-   5. Sombras
-   6. Transições
-   7. Layout
-
-   8. Cores semânticas
-   9. Tipografia semântica
-   10. Espaçamentos semânticos
-   11. Bordas semânticas
-   12. Sombras semânticas
-   13. Transições semânticas
-   14. Layout semântico
-
-   Metodologia:
-   - CSS Custom Properties
-   - Mobile First
-   - Naming semântico
-   - Organização inspirada em Design Systems
-   - Compatível com arquitetura ITCSS/BEM
-
-========================================================= */
-
 :root {
-    --font-titulo: 'Merriweather', Georgia, serif;
-    --font-corpo:  'Source Sans 3', Arial, sans-serif;
+   --font-family-base:   'Source Sans 3', Arial, sans-serif;
+   --font-family-header: 'Merriweather', Georgia, serif;
 
-    /* --space-xs: clamp(0.25rem, 1vw, 0.75rem);
-    --space-sm: clamp(0.5rem, 2vw, 1.25rem);
-    --space-md: clamp(1rem, 3vw, 2rem);
-    --space-lg: clamp(1.5rem, 5vw, 3rem);
-    --space-xl: clamp(2rem, 7vw, 4rem); */
+   --font-weight-regular: 400;
+   --font-weight-bold:    700;
 
-    --fs-base: clamp(0.875rem, 2vw, 1rem);
-    --fs-h1: clamp(1.75rem, 4vw, 2.5rem);
-    --fs-h2: clamp(1.25rem, 3vw, 1.875rem);
+   --line-height-base: 1.6;
 
-    --green-50: #f4f7f4;
-    --green-100: #e8f5e9;
-    --green-300: #81c784;
-    --green-500: #4caf50;
-    --green-700: #2e7d32;
-    --green-900: #1b5e20;
+   --font-size-xs:  clamp(0.75rem,  calc(0.70rem  + 0.23vw), 0.875rem);
+   --font-size-sm:  clamp(0.875rem, calc(0.83rem  + 0.23vw), 1rem);
+   --font-size-base:clamp(1rem,     calc(0.93rem  + 0.37vw), 1.25rem);
+   --font-size-md:  clamp(1.25rem,  calc(1.14rem  + 0.56vw), 1.563rem);
+   --font-size-lg:  clamp(1.563rem, calc(1.40rem  + 0.83vw), 1.953rem);
+   --font-size-xl:  clamp(1.953rem, calc(1.72rem  + 1.11vw), 2.441rem);
+   --font-size-xxl: clamp(2.441rem, calc(2.11rem  + 1.57vw), 3.052rem);
 
-    --blue-500: #1565c0;
-    --blue-700: #0d47a1;
+   --fs-base: var(--font-size-base);
+   --fs-h1:   var(--font-size-xxl);
+   --fs-h2:   var(--font-size-xl);
+   --fs-h3:   var(--font-size-lg);
 
-    --gray-50: #f9fafb;
-    --gray-100: #f3f4f6;
-    --gray-100: #d1d5db;
-    --gray-100: #333333;
-    --gray-100: #181c18;
+   --green-50:  #f4f7f4;
+   --green-100: #e8f5e9;
+   --green-300: #81c784;
+   --green-500: #4caf50;
+   --green-700: #2e7d32;
+   --green-900: #1b5e20;
 
-    --white: #ffffff;
-    --black: #000000;
+   --blue-500: #1565c0;
+   --blue-700: #0d47a1;
 
-    --yellow-400: #ffeb3b;
+   --gray-50:  #f9fafb;
+   --gray-100: #f3f4f6;
+   --gray-200: #e5e7eb;
+   --gray-300: #d1d5db;
+   --gray-400: #9ca3af;
+   --gray-500: #6b7280;
+   --gray-600: #4b5563;
+   --gray-700: #374151;
+   --gray-800: #1f2937;
+   --gray-900: #111827;
 
-    --font-family-base: 'Source Sans 3', Arial, sans-serif;
-    --font-family-header: 'Merriweather', Georgia, serif;
+   --white:      #ffffff;
+   --black:      #000000;
+   --yellow-400: #ffeb3b;
 
-    --font-size-xs: 0.75rem;
-    --font-size-sm: 0.875rem;
-    --font-size-base: 1rem;
-    --font-size-md: 1.25rem;
-    --font-size-lg: 1.5rem;
-    --font-size-xl: 2rem;
-    --font-size-xxl: 2.5rem;
+   --color-primary-100: #DBEAFE;
+   --color-primary-200: #BFDBFE;
+   --color-primary-300: #93C5FD;
+   --color-primary-400: #60A5FA;
+   --color-primary-500: #2E75B6;
+   --color-primary-600: #2563EB;
+   --color-primary-700: #1D4ED8;
+   --color-primary-800: #1E40AF;
+   --color-primary-900: #1E3A8A;
 
-    --font-weight-regular: 400;
-    --font-weight-bold: 700;
+   --space-xs: clamp(0.25rem, 1vw,  0.75rem);
+   --space-sm: clamp(0.5rem,  2vw,  1.25rem);
+   --space-md: clamp(1rem,    3vw,  2rem);
+   --space-lg: clamp(1.5rem,  5vw,  3rem);
+   --space-xl: clamp(2rem,    7vw,  4rem);
 
-    --line-height-base: 1.6;
-    
-    --space-xs: clamp(0.25rem, 1vw, 0.75rem);
-    --space-sm: clamp(0.5rem, 2vw, 1.25rem);
-    --space-md: clamp(1rem, 3vw, 2rem);
-    --space-lg: clamp(1.5rem, 5vw, 3rem);
-    --space-xl: clamp(2rem, 7vw, 4rem);
+   --border-width-sm: 1px;
+   --border-width-md: 2px;
+   --border-width-lg: 5px;
 
-    --border-width-sm: 1px;
-    --border-width-md: 2px;
-    --border-width-lg: 5px;
+   --radius-sm:   4px;
+   --radius-md:   8px;
+   --radius-lg:   12px;
+   --radius-full: 9999px;
 
-    --radius-sm: 6px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
+   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
 
-    --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+   --transition-fast: 0.2s ease;
+   --transition-base: 0.3s ease;
 
-    --transition-fast: 0.2s ease;
-    --transition-base: 0.3s ease;
+   --container-max-width: 1200px;
+   --sidebar-width:       220px;
+   --sidebar-width-lg:    300px;
+   --layout-max-width:    1400px;
 
-    --container-max-width: 1200px;
-    --sidebar-width: 220px;
-    --sidebar-width-fluid: minmax(180px, 20vw);
+   --z-base:     0;
+   --z-dropdown: 100;
+   --z-sticky:   200;
+   --z-fixed:    300;
+   --z-modal:    400;
+   --z-toast:    500;
 
-    /* =========================
-       CORES SEMÂNTICAS
-    ========================= */
+   --color-background-page:    var(--green-50);
+   --color-background-surface: var(--white);
+   --color-background-nav:     var(--green-100);
+   --color-background-header:  var(--green-700);
+   --color-background-footer:  var(--gray-900);
+   --color-bg-primary:         var(--green-50);
+   --color-bg-secondary:       var(--green-100);
 
-    --color-background-page: var(--green-50);
-    --color-background-surface: var(--white);
-    --color-background-nav: var(--green-100);
-    --color-background-header: var(--green-700);
-    --color-background-footer: #111827;
+   --color-text-primary:       var(--gray-900);
+   --color-text-light:         var(--white);
+   --color-text-heading:       var(--green-700);
+   --color-text-heading-dark:  var(--green-900);
 
-    --color-text-primary: var(--gray-700);
-    --color-text-light: var(--white);
-    --color-text-heading: var(--green-700);
-    --color-text-heading-dark: var(--green-900);
+   --color-border-default:    var(--green-100);
+   --color-border-highlight:  var(--green-500);
+   --color-border-focus:      var(--yellow-400);
+   --color-border:            var(--gray-200);
 
-    --color-border-default: var(--green-100);
-    --color-border-highlight: var(--green-500);
-    --color-border-focus: var(--yellow-400);
+   --color-link-default: var(--blue-700);
+   --color-link-article: var(--blue-500);
 
-    --color-link-default: var(--blue-700);
-    --color-link-article: var(--blue-500);
+   --color-action-primary:      var(--green-700);
+   --color-action-primary-text: var(--white);
 
-    --color-action-primary: var(--green-700);
-    --color-action-primary-text: var(--white);
+   --color-success: var(--green-700);
+   --color-warning: var(--yellow-400);
+   --color-info:    var(--blue-500);
+   --color-danger:  #c62828;
+   --color-error:   #DC2626;
 
-    --color-success: var(--green-700);
-    --color-warning: var(--yellow-400);
-    --color-info: var(--blue-500);
-    --color-danger: #c62828;
+   --font-titulo:  var(--font-family-header);
+   --font-corpo:   var(--font-family-base);
+   --font-body:    var(--font-family-base);
+   --font-heading: var(--font-family-header);
 
+   --font-size-body:          var(--font-size-base);
+   --font-size-title-page:    var(--font-size-xxl);
+   --font-size-title-section: var(--font-size-xl);
+   --font-size-title-card:    var(--font-size-md);
 
-    /* =========================
-       TIPOGRAFIA SEMÂNTICA
-    ========================= */
+   --font-weight-body:    var(--font-weight-regular);
+   --font-weight-heading: var(--font-weight-bold);
 
-    --font-body: var(--font-family-base);
-    --font-heading: var(--font-family-header);
+   --line-height-body: var(--line-height-base);
 
-    --font-size-body: var(--font-size-base);
-    --font-size-title-page: var(--font-size-xxl);
-    --font-size-title-section: var(--font-size-xl);
-    --font-size-title-card: var(--font-size-md);
+   --spacing-page:     var(--space-md);
+   --spacing-section:  var(--space-sm);
+   --spacing-card:     var(--space-sm);
+   --spacing-header:   var(--space-sm);
+   --spacing-footer:   var(--space-md);
+   --spacing-nav:      var(--space-xs);
+   --spacing-form-gap: var(--space-sm);
 
-    --font-weight-body: var(--font-weight-regular);
-    --font-weight-heading: var(--font-weight-bold);
+   --radius-surface: var(--radius-md);
+   --radius-card:    var(--radius-sm);
+   --radius-button:  var(--radius-sm);
 
-    --line-height-body: var(--line-height-base);
+   --border-card-highlight: var(--border-width-lg) solid var(--color-border-highlight);
+   --border-focus:          var(--border-width-md) solid var(--color-border-focus);
 
+   --shadow-button: var(--shadow-sm);
+   --shadow-card:   var(--shadow-sm);
 
-    /* =========================
-       ESPAÇAMENTOS SEMÂNTICOS
-    ========================= */
+   --transition-theme:  var(--transition-base);
+   --transition-menu:   var(--transition-base);
+   --transition-button: var(--transition-fast); 
 
-    --spacing-page: var(--space-md);
-    --spacing-section: var(--space-sm);
-    --spacing-card: var(--space-sm);
-    --spacing-header: var(--space-sm);
-    --spacing-footer: var(--space-md);
-    --spacing-nav: var(--space-xs);
-    --spacing-form-gap: var(--space-sm);
-
-
-    /* =========================
-       BORDAS SEMÂNTICAS
-    ========================= */
-
-    --radius-surface: var(--radius-md);
-    --radius-card: var(--radius-sm);
-    --radius-button: var(--radius-sm);
-
-    --border-card-highlight: var(--border-width-lg) solid var(--color-border-highlight);
-    --border-focus: var(--border-width-md) solid var(--color-border-focus);
-
-
-    /* =========================
-       SOMBRAS SEMÂNTICAS
-    ========================= */
-
-    --shadow-button: var(--shadow-sm);
-    --shadow-card: var(--shadow-sm);
-
-
-    /* =========================
-       TRANSIÇÕES SEMÂNTICAS
-    ========================= */
-
-    --transition-theme: var(--transition-base);
-    --transition-menu: var(--transition-base);
-    --transition-button: var(--transition-fast);
-
-
-    /* =========================
-       LAYOUT SEMÂNTICO
-    ========================= */
-
-    --layout-sidebar-width: var(--sidebar-width);
-    --layout-sidebar-fluid: var(--sidebar-width-fluid);
-    --layout-container-max: var(--container-max-width);
-
-    --color-primary-100: #DBEAFE;
-    --color-primary-200: #BFDBFE;
-    --color-primary-300: #93C5FD;
-    --color-primary-400: #60A5FA;
-    --color-primary-500: #2E75B6;
-    --color-primary-600: #2563EB;
-    --color-primary-700: #1D4ED8;
-    --color-primary-800: #1E40AF;
-    --color-primary-900: #1E3A8A;
-
-    --color-neutral-50:  #F9FAFB;
-    --color-neutral-100: #F3F4F6;
-    --color-neutral-200: #E5E7EB;
-    --color-neutral-300: #D1D5DB;
-    --color-neutral-400: #9CA3AF;
-    --color-neutral-500: #6B7280;
-    --color-neutral-600: #4B5563;
-    --color-neutral-700: #374151;
-    --color-neutral-800: #1F2937;
-    --color-neutral-900: #111827;
-
-    --color-success: #16A34A;
-    --color-warning: #D97706;
-    --color-error:   #DC2626;
-    --color-info:    #0891B2;
-
-    --radius-sm:   4px;
-    --radius-md:   8px;
-    --radius-lg:   12px;
-    --radius-full: 9999px;
-
-    --shadow-sm:  0 1px 2px rgba(0,0,0,0.05);
-    --shadow-md:  0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
-    --shadow-lg:  0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
-    --shadow-xl:  0 20px 25px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.04);
-
-    --z-base:    0;
-    --z-dropdown: 100;
-    --z-sticky:   200;
-    --z-fixed:    300;
-    --z-modal:    400;
-    --z-toast:    500;
-
-    --color-text-primary:  #111827;
-    --color-bg-primary:    #f4f7f4;
-    --color-bg-secondary:  #e8f5e9;
-    --color-border:        #c8e6c9;
-
+   --layout-sidebar-width: var(--sidebar-width);
+   --layout-sidebar-fluid: minmax(180px, 20vw);
+   --layout-container-max: var(--container-max-width);
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --color-text-primary:  #F9FAFB;
-        --color-bg-primary:    #111827;
-        --color-bg-secondary:  #1F2937;
-        --color-border:        #374151;
-    }
+   :root {
+       --color-text-primary:       var(--gray-50);
+       --color-bg-primary:         var(--gray-900);
+       --color-bg-secondary:       var(--gray-800);
+       --color-border:             var(--gray-700);
+       --color-background-page:    var(--gray-900);
+       --color-background-surface: var(--gray-800);
+       --color-background-nav:     var(--gray-800);
+   }
 }
