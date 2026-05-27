@@ -1,51 +1,65 @@
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #181c18;
-        color: #e0f2f1;
+        background-color: var(--color-dark-body-bg);
+        color: var(--color-dark-body-text);
     }
+
     header {
-        background-color: #1b5e20;
-        color: #fff;
+        background-color: var(--color-dark-header-bg);
+        color: var(--color-text-light);
     }
+
     nav {
-        background-color: #263238;
+        background-color: var(--color-dark-nav-bg);
     }
+
     article {
-        background-color: #222b22;
-        border-left-color: #66bb6a;
+        background-color: var(--color-dark-surface);
+        border-left-color: var(--color-dark-border-highlight);
     }
+
     .card {
-        background-color: #222b22;
-        border-color: #388e3c;
-        color: #e0f2f1;
+        background-color: var(--color-dark-surface);
+        border-color: var(--color-dark-border-default);
+        color: var(--color-dark-body-text);
     }
+
     .card__title {
-        color: #66bb6a;
+        color: var(--color-dark-heading);
     }
+
     .card__body {
-        color: #c8e6c9;
+        color: var(--color-dark-card-body);
     }
+
     section h2 {
-        color: #66bb6a;
-        border-bottom-color: #388e3c;
+        color: var(--color-dark-heading);
+        border-bottom-color: var(--color-dark-border-default);
     }
-    a, .nav__list a, article a {
-        color: #90caf9;
+
+    a,
+    .nav__list a,
+    article a {
+        color: var(--color-dark-link);
     }
+
     .header__actions button {
-        background: #263238;
-        color: #fff;
-        border: 2px solid #66bb6a;
+        background: var(--color-dark-button-bg);
+        color: var(--color-text-light);
+        border: var(--border-width-md) solid var(--color-dark-button-border);
     }
+
     .header__actions button[aria-pressed="true"] {
-        background: #66bb6a;
-        color: #263238;
-        border-color: #fff200;
+        background: var(--color-dark-button-active-bg);
+        color: var(--color-dark-button-active-text);
+        border-color: var(--color-border-focus);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
         transition: none !important;
         animation: none !important;
         scroll-behavior: auto !important;
@@ -53,55 +67,112 @@
 }
 
 body.manual-dark {
-    background-color: #181c18 !important;
-    color: #e0f2f1 !important;
+    background-color: var(--color-dark-body-bg) !important;
+    color: var(--color-dark-body-text) !important;
 }
+
 body.manual-dark header {
-    background-color: #1b5e20 !important;
-    color: #fff !important;
+    background-color: var(--color-dark-header-bg) !important;
+    color: var(--color-text-light) !important;
 }
+
 body.manual-dark nav {
-    background-color: #263238 !important;
+    background-color: var(--color-dark-nav-bg) !important;
 }
+
 body.manual-dark article {
-    background-color: #222b22 !important;
-    border-left-color: #66bb6a !important;
+    background-color: var(--color-dark-surface) !important;
+    border-left-color: var(--color-dark-border-highlight) !important;
 }
+
 body.manual-dark .card {
-    background-color: #222b22 !important;
-    border-color: #388e3c !important;
-    color: #e0f2f1 !important;
+    background-color: var(--color-dark-surface) !important;
+    border-color: var(--color-dark-border-default) !important;
+    color: var(--color-dark-body-text) !important;
 }
+
 body.manual-dark .card__title {
-    color: #66bb6a !important;
+    color: var(--color-dark-heading) !important;
 }
+
 body.manual-dark .card__body {
-    color: #c8e6c9 !important;
+    color: var(--color-dark-card-body) !important;
 }
+
 body.manual-dark section h2 {
-    color: #66bb6a !important;
-    border-bottom-color: #388e3c !important;
+    color: var(--color-dark-heading) !important;
+    border-bottom-color: var(--color-dark-border-default) !important;
 }
+
 body.manual-dark a,
 body.manual-dark .nav__list a,
 body.manual-dark article a {
-    color: #90caf9 !important;
+    color: var(--color-dark-link) !important;
 }
 
-body.manual-light { background-color: #f4f7f4 !important; color: #333 !important; }
-body.manual-light header { background-color: #2e7d32 !important; color: #fff !important; }
-body.manual-light nav     { background-color: #e8f5e9 !important; }
-body.manual-light article { background-color: #fff !important; border-left-color: #4caf50 !important; }
-body.manual-light article h3 { color: #1b5e20 !important; }
-body.manual-light section h2 { color: #2e7d32 !important; border-bottom-color: #c8e6c9 !important; }
+/* LIGHT MODE */
+body.manual-light {
+    background-color: var(--color-light-body-bg) !important;
+    color: var(--color-light-body-text) !important;
+}
+
+body.manual-light header {
+    background-color: var(--color-light-header-bg) !important;
+    color: var(--color-text-light) !important;
+}
+
+body.manual-light nav {
+    background-color: var(--color-light-nav-bg) !important;
+}
+
+body.manual-light article {
+    background-color: var(--color-light-surface) !important;
+    border-left-color: var(--color-light-border-highlight) !important;
+}
+
+body.manual-light article h3 {
+    color: var(--color-light-heading) !important;
+}
+
+body.manual-light section h2 {
+    color: var(--color-text-heading) !important;
+    border-bottom-color: var(--color-light-border-default) !important;
+}
+
 body.manual-light a,
-body.manual-light .nav__list a { color: #90caf9 !important; }
-body.manual-light article a   { color: #90caf9 !important; }
-body.manual-light .card { background-color: #fff !important; border-color: #c8e6c9 !important; color: #333 !important; }
-body.manual-light .card__title { color: #000000 !important; }
-body.manual-light .card__body  { color: #333 !important; }
-body.manual-light .header__actions button { background: #fff !important; color: #2e7d32 !important; border-color: #2e7d32 !important; }
-body.manual-light .header__actions button[aria-pressed="true"] { background: #2e7d32 !important; color: #fff !important; border-color: #fff200 !important; }
+body.manual-light .nav__list a {
+    color: var(--color-light-link) !important;
+}
+
+body.manual-light article a {
+    color: var(--color-light-link) !important;
+}
+
+body.manual-light .card {
+    background-color: var(--color-light-surface) !important;
+    border-color: var(--color-light-border-default) !important;
+    color: var(--color-light-body-text) !important;
+}
+
+body.manual-light .card__title {
+    color: var(--black) !important;
+}
+
+body.manual-light .card__body {
+    color: var(--color-light-body-text) !important;
+}
+
+body.manual-light .header__actions button {
+    background: var(--color-light-button-bg) !important;
+    color: var(--color-light-button-text) !important;
+    border-color: var(--color-light-button-border) !important;
+}
+
+body.manual-light .header__actions button[aria-pressed="true"] {
+    background: var(--color-light-button-active-bg) !important;
+    color: var(--color-light-button-active-text) !important;
+    border-color: var(--color-border-focus) !important;
+}
 
 /* Reduzir movimento manual */
 body.manual-reduced-motion *,

@@ -160,6 +160,51 @@
    --layout-sidebar-width: var(--sidebar-width);
    --layout-sidebar-fluid: minmax(180px, 20vw);
    --layout-container-max: var(--container-max-width);
+
+
+   --color-dark-body-bg: var(--gray-900);
+   --color-dark-body-text: #e0f2f1;
+   
+   --color-dark-header-bg: var(--green-900);
+   --color-dark-nav-bg: #263238;
+   
+   --color-dark-surface: #222b22;
+   
+   --color-dark-border-highlight: #66bb6a;
+   --color-dark-border-default: #388e3c;
+   
+   --color-dark-heading: #66bb6a;
+   --color-dark-card-body: #c8e6c9;
+   
+   --color-dark-link: #90caf9;
+   
+   --color-dark-button-bg: #263238;
+   --color-dark-button-border: #66bb6a;
+   --color-dark-button-active-bg: #66bb6a;
+   --color-dark-button-active-text: #263238;
+   
+   /* LIGHT MODE */
+   --color-light-body-bg: var(--green-50);
+   --color-light-body-text: #333;
+   
+   --color-light-header-bg: var(--green-700);
+   --color-light-nav-bg: var(--green-100);
+   
+   --color-light-surface: var(--white);
+   
+   --color-light-border-highlight: var(--green-500);
+   --color-light-border-default: #c8e6c9;
+   
+   --color-light-heading: var(--green-900);
+   
+   --color-light-link: #90caf9;
+   
+   --color-light-button-bg: var(--white);
+   --color-light-button-text: var(--green-700);
+   --color-light-button-border: var(--green-700);
+   
+   --color-light-button-active-bg: var(--green-700);
+   --color-light-button-active-text: var(--white);
 }
 
 @media (prefers-color-scheme: dark) {
