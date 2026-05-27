@@ -1,157 +1,109 @@
-.nav {
-    grid-area: nav;
-    background-color: var(--color-background-nav);
-    padding: var(--spacing-nav);
-    border-radius: var(--radius-surface);
-    margin-bottom: var(--spacing-nav);
-    width: 100%;
-    box-sizing: border-box;
-    transition: background-color var(--transition-menu);
-}
+/* =========================================
+   NAV — THEME TOKENS
+========================================= */
 
-/* MOBILE: navbar horizontal abaixo da header */
-.nav__title {
-    display: none;
-}
-
-.nav__list {
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-    overflow-x: auto;
-    white-space: nowrap;
-}
-
-.nav__list a {
-    display: block;
-    text-decoration: none;
-    color: var(--color-link-default);
-    font-weight: var(--font-weight-heading);
-    padding: var(--spacing-nav);
-    border-radius: var(--radius-button);
-    transition:
-        background-color var(--transition-button),
-        color var(--transition-button);
-}
-@media (hover: hover) and (pointer: fine) {
-    .nav__list a:hover {
-        background-color: color-mix(in srgb, var(--color-action-primary) 12%, transparent);
-        text-decoration: none;
-    }
-}
-.nav__list a:focus {
-    outline: var(--border-focus);
-    outline-offset: var(--space-xs);
-}
-
-/* DESKTOP: navbar vertical e retrátil */
-@media (min-width: 768px) {
+@media (prefers-color-scheme: dark) {
     .nav {
-        position: sticky;
-        top: 0;
-        align-self: start;
+        background-color: var(--color-dark-nav-bg);
     }
 
-    .nav__title {
-        display: flex;
-        align-items: center;
-        gap: var(--space-xs);
-        font-size: var(--font-size-title-card);
-        margin: 0 0 var(--space-xs) 0;
+    .nav__list a {
+        color: var(--color-dark-link);
+    }
+
+    .nav__list a:hover {
+        background-color: color-mix(
+            in srgb,
+            var(--color-dark-border-highlight) 12%,
+            transparent
+        );
     }
 
     .nav__toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        flex-shrink: 0;
-        background-color: var(--color-action-primary);
-        color: var(--color-action-primary-text);
-        border: none;
-        border-radius: var(--radius-button);
-        cursor: pointer;
-        padding: 0;
-        transition:
-            background-color var(--transition-button),
-            color var(--transition-button),
-            border-color var(--transition-button);
+        background-color: var(--color-dark-button-bg);
+        color: var(--color-text-light);
+        border-color: var(--color-dark-button-border);
     }
 
-    .nav__toggle:focus {
-        outline: var(--border-focus);
-        outline-offset: var(--space-xs);
-    }
-
-    .nav__toggle span {
-        position: relative;
-        display: block;
-        background-color: var(--color-action-primary-text);
-        height: 3px;
-        width: 22px;
-        border-radius: var(--radius-sm);
-        transition: background-color var(--transition-menu);
-    }
-
+    .nav__toggle span,
     .nav__toggle span::before,
     .nav__toggle span::after {
-        content: '';
-        display: block;
-        background-color: var(--color-action-primary-text);
-        height: 3px;
-        width: 22px;
-        border-radius: var(--radius-sm);
-        position: absolute;
-        left: 0;
-        transition: transform var(--transition-menu);
-    }
-
-    .nav__toggle span::before {
-        top: -7px;
-    }
-
-    .nav__toggle span::after {
-        top: 7px;
+        background-color: var(--color-text-light);
     }
 
     .nav__toggle--open span {
         background-color: transparent;
     }
+}
 
-    .nav__toggle--open span::before {
-        transform: translateY(7px) rotate(45deg);
-    }
+/* =========================================
+   MANUAL DARK MODE
+========================================= */
 
-    .nav__toggle--open span::after {
-        transform: translateY(-7px) rotate(-45deg);
-    }
+body.manual-dark .nav {
+    background-color: var(--color-dark-nav-bg) !important;
+}
 
-    .nav__list {
-        display: block;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        pointer-events: none;
-        visibility: hidden;
-        transition:
-            max-height var(--transition-menu),
-            opacity var(--transition-button),
-            visibility var(--transition-button);
-    }
+body.manual-dark .nav__list a {
+    color: var(--color-dark-link) !important;
+}
 
-    .nav__list--open {
-        max-height: 500px;
-        opacity: 1;
-        pointer-events: auto;
-        visibility: visible;
-    }
+body.manual-dark .nav__list a:hover {
+    background-color: color-mix(
+        in srgb,
+        var(--color-dark-border-highlight) 12%,
+        transparent
+    ) !important;
+}
 
-    .nav__list li {
-        margin-bottom: var(--space-xs);
-    }
+body.manual-dark .nav__toggle {
+    background-color: var(--color-dark-button-bg) !important;
+    color: var(--color-text-light) !important;
+    border-color: var(--color-dark-button-border) !important;
+}
 
-    .nav__list a {
-        margin-bottom: var(--space-sm);
-    }
+body.manual-dark .nav__toggle span,
+body.manual-dark .nav__toggle span::before,
+body.manual-dark .nav__toggle span::after {
+    background-color: var(--color-text-light) !important;
+}
+
+body.manual-dark .nav__toggle--open span {
+    background-color: transparent !important;
+}
+
+/* =========================================
+   MANUAL LIGHT MODE
+========================================= */
+
+body.manual-light .nav {
+    background-color: var(--color-light-nav-bg) !important;
+}
+
+body.manual-light .nav__list a {
+    color: var(--color-link-default) !important;
+}
+
+body.manual-light .nav__list a:hover {
+    background-color: color-mix(
+        in srgb,
+        var(--color-action-primary) 12%,
+        transparent
+    ) !important;
+}
+
+body.manual-light .nav__toggle {
+    background-color: var(--color-light-button-active-bg) !important;
+    color: var(--color-light-button-active-text) !important;
+    border-color: var(--color-light-button-border) !important;
+}
+
+body.manual-light .nav__toggle span,
+body.manual-light .nav__toggle span::before,
+body.manual-light .nav__toggle span::after {
+    background-color: var(--color-text-light) !important;
+}
+
+body.manual-light .nav__toggle--open span {
+    background-color: transparent !important;
 }
