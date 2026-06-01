@@ -1,214 +1,341 @@
 /*
- * variables.css — Fonte única de verdade para todos os tokens de design
- * Define custom properties (var()) para: tipografia, espaçamento, cores,
- * bordas, sombras, transições, layout e temas claro/escuro.
- * Não aplica estilos — apenas declara valores reutilizáveis.
+ * variables.css — Fonte única de verdade para todos os tokens de design.
+ *
+ * Convenção adotada:
+ * 1. Tokens primitivos guardam valores brutos e escalas reutilizáveis
+ *    (cores, fontes, espaçamentos, raios, sombras, tempos e medidas).
+ * 2. Tokens semânticos descrevem intenção de uso e devem apontar para
+ *    tokens primitivos sempre que possível.
+ * 3. Tokens de tema claro/escuro centralizam variações visuais sem alterar
+ *    os nomes semânticos usados pelos componentes.
+ * 4. Aliases legados foram mantidos para compatibilidade com os arquivos
+ *    CSS já existentes no projeto.
  */
 
-:root {
-   --font-family-base:   'Source Sans 3', Arial, sans-serif;
-   --font-family-header: 'Merriweather', Georgia, serif;
+/* ==========================================================================
+   TOKENS PRIMITIVOS
+   Valores-base que não dependem diretamente de contexto de uso.
+   ========================================================================== */
 
-   --font-weight-semibold: 600;
-   --font-weight-bold:     700;
-
-   --line-height-base: 1.6;
-   --line-height-reset: 1.5;
-
-   --font-size-sm:  clamp(0.875rem, calc(0.83rem  + 0.23vw), 1rem);
-   --font-size-base:clamp(1rem,     calc(0.93rem  + 0.37vw), 1.25rem);
-   --font-size-md:  clamp(1.25rem,  calc(1.14rem  + 0.56vw), 1.563rem);
-   --font-size-xl:  clamp(1.953rem, calc(1.72rem  + 1.11vw), 2.441rem);
-   --font-size-xxl: clamp(2.441rem, calc(2.11rem  + 1.57vw), 3.052rem);
-
-   --fs-base: var(--font-size-base);
-   --fs-h1:   var(--font-size-xxl);
-
-   --green-50:  #f4f7f4;
-   --green-100: #e8f5e9;
-   --green-500: #4caf50;
-   --green-700: #2e7d32;
-   --green-900: #1b5e20;
-
-   --blue-500: #1565c0;
-   --blue-700: #0d47a1;
-
-   --gray-50:  #f9fafb;
-   --gray-900: #111827;
-
-   --white:      #ffffff;
-   --black:      #000000;
-   --yellow-400: #ffeb3b;
-
-   --space-xs: clamp(0.25rem, 1vw,  0.75rem);
-   --space-sm: clamp(0.5rem,  2vw,  1.25rem);
-   --space-md: clamp(1rem,    3vw,  2rem);
-   --space-lg: clamp(1.5rem,  5vw,  3rem);
-
-   --border-width-sm:    1px;
-   --border-width-md:    2px;
-   --border-width-lg:    5px;
-   --border-width-input: 1.5px;
-   --outline-width:      3px;
-
-   --radius-sm:   4px;
-   --radius-md:   8px;
-
-   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
-   --shadow-focus-ring: 0 0 0 3px rgba(46, 125, 50, 0.2);
-
-   --transition-fast:  0.2s ease;
-   --transition-base:  0.3s ease;
-   --duration-fade-in: 2.5s;
-
-   --container-max-width: 1200px;
-   --sidebar-width:       220px;
-   --sidebar-width-lg:    300px;
-   --layout-max-width:    1400px;
-
-   --z-fixed: 300;
-
-   --color-background-page:    var(--green-50);
-   --color-background-surface: var(--white);
-   --color-background-nav:     var(--green-100);
-   --color-background-header:  var(--green-700);
-   --color-background-footer:  var(--gray-900);
-
-   --color-text-primary:       var(--gray-900);
-   --color-text-light:         var(--white);
-   --color-text-heading:       var(--green-700);
-   --color-text-heading-dark:  var(--green-900);
-
-   --color-border-default:    var(--green-100);
-   --color-border-highlight:  var(--green-500);
-   --color-border-focus:      var(--yellow-400);
-
-   --color-link-default: var(--blue-700);
-   --color-link-article: var(--blue-500);
-
-   --color-action-primary:      var(--green-700);
-   --color-action-primary-text: var(--white);
-
-   --color-error: #DC2626;
-
-   --font-titulo:  var(--font-family-header);
-   --font-corpo:   var(--font-family-base);
-   --font-body:    var(--font-family-base);
-   --font-heading: var(--font-family-header);
-
-   --font-size-body:          var(--font-size-base);
-   --font-size-title-page:    var(--font-size-xxl);
-   --font-size-title-section: var(--font-size-xl);
-   --font-size-title-card:    var(--font-size-md);
-
-   --font-weight-heading: var(--font-weight-bold);
-
-   --line-height-body: var(--line-height-base);
-
-   --spacing-page:     var(--space-md);
-   --spacing-section:  var(--space-sm);
-   --spacing-card:     var(--space-sm);
-   --spacing-header:   var(--space-sm);
-   --spacing-footer:   var(--space-md);
-   --spacing-nav:      var(--space-xs);
-   --spacing-nav-link: 0.35rem;
-
-   --radius-surface: var(--radius-md);
-   --radius-card:    var(--radius-sm);
-   --radius-button:  var(--radius-sm);
-   --radius-pill:    9999px;
-
-   --border-card-highlight: var(--border-width-lg) solid var(--color-border-highlight);
-   --border-focus:          var(--border-width-md) solid var(--color-border-focus);
-
-   --shadow-button: var(--shadow-sm);
-   --shadow-card:   var(--shadow-sm);
-
-   --transition-theme:  var(--transition-base);
-   --transition-menu:   var(--transition-base);
-   --transition-button: var(--transition-fast); 
-
-   --layout-container-max: var(--container-max-width);
-   --touch-target-min:    44px;
-
-
-   --color-dark-body-bg: #111a11;
-   --color-dark-body-text: #e0f2f1;
-   
-   --color-dark-header-bg: var(--green-900);
-   --color-dark-nav-bg: #263238;
-   
-   --color-dark-surface: #222b22;
-   
-   --color-dark-border-highlight: #66bb6a;
-   --color-dark-border-default: #388e3c;
-   
-   --color-dark-heading: #66bb6a;
-   --color-dark-card-body: #c8e6c9;
-   
-   --color-dark-link: #90caf9;
-   
-   --color-dark-button-bg: #263238;
-   --color-dark-button-border: #66bb6a;
-   --color-dark-button-active-bg: #66bb6a;
-   --color-dark-button-active-text: #263238;
-   
-   /* LIGHT MODE */
-   --color-light-body-bg: var(--green-50);
-   --color-light-body-text: #333;
-   
-   --color-light-header-bg: var(--green-700);
-   --color-light-nav-bg: var(--green-700);
-   
-   --color-light-surface: var(--white);
-   
-   --color-light-border-highlight: var(--green-500);
-   --color-light-border-default: #c8e6c9;
-   
-   --color-light-heading: var(--green-900);
-   
-   --color-light-link: #90caf9;
-   
-   --color-light-button-bg: var(--white);
-   --color-light-button-text: var(--green-700);
-   --color-light-button-border: var(--green-700);
-   
-   --color-light-button-active-bg: var(--green-700);
-   --color-light-button-active-text: var(--white);
-
-   --color-light-nav-hover-bg: rgba(255, 255, 255, 0.18);
-   --color-light-nav-toggle-border: rgba(255, 255, 255, 0.5);
-
-   /* TIPOGRAFIA — UTILITÁRIOS */
-   --opacity-muted:        0.9;
-   --measure-prose:        60ch;
-   --letter-spacing-caps:  0.05em;
-   --font-size-nav-mobile: 0.8rem;
-
-   /* ESPAÇAMENTO — COMPONENTES */
-   --spacing-btn:          0.5em 1.2em;
-   --spacing-btn-compact:  0.3em 0.7em;
-   --spacing-cta:          0.6em 1.5em;
-   --spacing-input:        0.55em 0.8em;
-   --spacing-form-gap:     0.35rem;
-   --spacing-nav-pill:     0.25rem 0.6rem;
-   --spacing-footer-links: 0.4em;
-
-   /* MOVIMENTO */
-   --lift-card-hover: -4px;
-
-   /* NAV — TOGGLE */
-   --size-nav-toggle:      2.5rem;
-   --size-nav-toggle-icon: 1.2rem;
-   --nav-toggle-bar-offset: 6px;
-}
-
-@media (prefers-color-scheme: dark) {
    :root {
-       --color-text-primary:       var(--gray-50);
-       --color-background-page:    var(--color-dark-body-bg);
-       --color-background-surface: var(--color-dark-surface);
-       --color-background-nav:     var(--color-dark-nav-bg);
+      /* -----------------------------------------------------------------------
+         Tipografia — famílias, pesos, alturas de linha e escala fluida
+         ----------------------------------------------------------------------- */
+      --font-family-base:   'Source Sans 3', Arial, sans-serif;
+      --font-family-header: 'Merriweather', Georgia, serif;
+   
+      --font-weight-semibold: 600;
+      --font-weight-bold:     700;
+   
+      --line-height-base:  1.6;
+      --line-height-reset: 1.5;
+   
+      --font-size-sm:   clamp(0.875rem, calc(0.83rem + 0.23vw), 1rem);
+      --font-size-base: clamp(1rem, calc(0.93rem + 0.37vw), 1.25rem);
+      --font-size-md:   clamp(1.25rem, calc(1.14rem + 0.56vw), 1.563rem);
+      --font-size-xl:   clamp(1.953rem, calc(1.72rem + 1.11vw), 2.441rem);
+      --font-size-xxl:  clamp(2.441rem, calc(2.11rem + 1.57vw), 3.052rem);
+   
+      /* -----------------------------------------------------------------------
+         Cores primitivas — paleta base
+         ----------------------------------------------------------------------- */
+      --green-50:  #f4f7f4;
+      --green-100: #e8f5e9;
+      --green-200: #c8e6c9;
+      --green-300: #66bb6a;
+      --green-500: #4caf50;
+      --green-600: #388e3c;
+      --green-700: #2e7d32;
+      --green-900: #1b5e20;
+   
+      --blue-200: #90caf9;
+      --blue-500: #1565c0;
+      --blue-700: #0d47a1;
+   
+      --gray-50:  #f9fafb;
+      --gray-700: #333333;
+      --gray-800: #263238;
+      --gray-900: #111827;
+   
+      --surface-dark-900: #111a11;
+      --surface-dark-800: #222b22;
+   
+      --teal-50: #e0f2f1;
+   
+      --white: #ffffff;
+      --black: #000000;
+   
+      --yellow-400: #ffeb3b;
+      --red-600:    #DC2626;
+   
+      --white-alpha-18: rgba(255, 255, 255, 0.18);
+      --white-alpha-50: rgba(255, 255, 255, 0.5);
+      --green-alpha-20: rgba(46, 125, 50, 0.2);
+   
+      /* -----------------------------------------------------------------------
+         Espaçamento — escala base
+         ----------------------------------------------------------------------- */
+      --space-xs: clamp(0.25rem, 1vw, 0.75rem);
+      --space-sm: clamp(0.5rem, 2vw, 1.25rem);
+      --space-md: clamp(1rem, 3vw, 2rem);
+      --space-lg: clamp(1.5rem, 5vw, 3rem);
+   
+      /* -----------------------------------------------------------------------
+         Bordas e raios
+         ----------------------------------------------------------------------- */
+      --border-width-sm:    1px;
+      --border-width-md:    2px;
+      --border-width-lg:    5px;
+      --border-width-input: 1.5px;
+      --outline-width:      3px;
+   
+      --radius-sm: 4px;
+      --radius-md: 8px;
+   
+      /* -----------------------------------------------------------------------
+         Sombras
+         ----------------------------------------------------------------------- */
+      --shadow-sm:         0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md:         0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+      --shadow-focus-ring: 0 0 0 3px var(--green-alpha-20);
+   
+      /* -----------------------------------------------------------------------
+         Movimento e transições
+         ----------------------------------------------------------------------- */
+      --transition-fast:  0.2s ease;
+      --transition-base:  0.3s ease;
+      --duration-fade-in: 2.5s;
+   
+      --lift-card-hover: -4px;
+   
+      /* -----------------------------------------------------------------------
+         Layout, profundidade e medidas estruturais
+         ----------------------------------------------------------------------- */
+      --container-max-width: 1200px;
+      --layout-max-width:    1400px;
+   
+      --sidebar-width:    220px;
+      --sidebar-width-lg: 300px;
+   
+      --z-fixed: 300;
+   
+      --touch-target-min: 44px;
+   
+      /* -----------------------------------------------------------------------
+         Medidas auxiliares e utilitárias
+         ----------------------------------------------------------------------- */
+      --opacity-muted:       0.9;
+      --measure-prose:       60ch;
+      --letter-spacing-caps: 0.05em;
+   
+      --font-size-nav-mobile: 0.8rem;
+   
+      /* -----------------------------------------------------------------------
+         Componentes — medidas primitivas específicas
+         ----------------------------------------------------------------------- */
+      --size-nav-toggle:       2.5rem;
+      --size-nav-toggle-icon:  1.2rem;
+      --nav-toggle-bar-offset: 6px;
+
+      /* ESPAÇAMENTO — PRIMITIVOS FIXOS */
+      --space-fixed-2xs: 0.25rem;
+      --space-fixed-xs:  0.35rem;
+      --space-fixed-sm:  0.6rem;
+   
+      /* ESPAÇAMENTO — PRIMITIVOS RELATIVOS AO TEXTO */
+      --space-text-2xs: 0.3em;
+      --space-text-xs:  0.4em;
+      --space-text-sm:  0.5em;
+      --space-text-md:  0.55em;
+      --space-text-lg:  0.6em;
+      --space-text-xl:  0.7em;
+      --space-text-2xl: 0.8em;
+      --space-text-3xl: 1.2em;
+      --space-text-4xl: 1.5em;
+   
+      /* ==========================================================================
+         TOKENS DE TEMA
+         Valores de tema usados pelos tokens semânticos globais.
+         ========================================================================== */
+   
+      /* -----------------------------------------------------------------------
+         Tema claro
+         ----------------------------------------------------------------------- */
+      --color-light-body-bg:   var(--green-50);
+      --color-light-body-text: var(--gray-700);
+   
+      --color-light-header-bg: var(--green-700);
+      --color-light-nav-bg:    var(--green-700);
+   
+      --color-light-surface: var(--white);
+   
+      --color-light-border-highlight: var(--green-500);
+      --color-light-border-default:    var(--green-200);
+   
+      --color-light-heading: var(--green-900);
+   
+      --color-light-link: var(--blue-200);
+   
+      --color-light-button-bg:     var(--white);
+      --color-light-button-text:   var(--green-700);
+      --color-light-button-border: var(--green-700);
+   
+      --color-light-button-active-bg:   var(--green-700);
+      --color-light-button-active-text: var(--white);
+   
+      --color-light-nav-hover-bg:      var(--white-alpha-18);
+      --color-light-nav-toggle-border: var(--white-alpha-50);
+   
+      /* -----------------------------------------------------------------------
+         Tema escuro
+         ----------------------------------------------------------------------- */
+      --color-dark-body-bg:   var(--surface-dark-900);
+      --color-dark-body-text: var(--teal-50);
+   
+      --color-dark-header-bg: var(--green-900);
+      --color-dark-nav-bg:    var(--gray-800);
+   
+      --color-dark-surface: var(--surface-dark-800);
+   
+      --color-dark-border-highlight: var(--green-300);
+      --color-dark-border-default:    var(--green-600);
+   
+      --color-dark-heading:   var(--green-300);
+      --color-dark-card-body: var(--green-200);
+   
+      --color-dark-link: var(--blue-200);
+   
+      --color-dark-button-bg:          var(--gray-800);
+      --color-dark-button-border:      var(--green-300);
+      --color-dark-button-active-bg:   var(--green-300);
+      --color-dark-button-active-text: var(--gray-800);
+
+   
+      /* ==========================================================================
+         TOKENS SEMÂNTICOS
+         Nomes orientados à intenção de uso dentro dos componentes.
+         ========================================================================== */
+   
+      /* -----------------------------------------------------------------------
+         Cores semânticas — fundos
+         ----------------------------------------------------------------------- */
+      --color-background-page:    var(--green-50);
+      --color-background-surface: var(--white);
+      --color-background-nav:     var(--green-100);
+      --color-background-header:  var(--green-700);
+      --color-background-footer:  var(--gray-900);
+   
+      /* -----------------------------------------------------------------------
+         Cores semânticas — texto
+         ----------------------------------------------------------------------- */
+      --color-text-primary:      var(--gray-900);
+      --color-text-light:        var(--white);
+      --color-text-heading:      var(--green-700);
+      --color-text-heading-dark: var(--green-900);
+   
+      /* -----------------------------------------------------------------------
+         Cores semânticas — bordas, foco, links, ações e estados
+         ----------------------------------------------------------------------- */
+      --color-border-default:   var(--green-100);
+      --color-border-highlight: var(--green-500);
+      --color-border-focus:     var(--yellow-400);
+   
+      --color-link-default: var(--blue-700);
+      --color-link-article: var(--blue-500);
+   
+      --color-action-primary:      var(--green-700);
+      --color-action-primary-text: var(--white);
+   
+      --color-error: var(--red-600);
+   
+      /* -----------------------------------------------------------------------
+         Tipografia semântica e aliases de compatibilidade
+         ----------------------------------------------------------------------- */
+      --font-body:    var(--font-family-base);
+      --font-heading: var(--font-family-header);
+   
+      --font-corpo:  var(--font-family-base);
+      --font-titulo: var(--font-family-header);
+   
+      --fs-base: var(--font-size-base);
+      --fs-h1:   var(--font-size-xxl);
+   
+      --font-size-body:          var(--font-size-base);
+      --font-size-title-page:    var(--font-size-xxl);
+      --font-size-title-section: var(--font-size-xl);
+      --font-size-title-card:    var(--font-size-md);
+   
+      --font-weight-heading: var(--font-weight-bold);
+   
+      --line-height-body: var(--line-height-base);
+   
+      /* -----------------------------------------------------------------------
+         Espaçamento semântico — layout e blocos
+         ----------------------------------------------------------------------- */
+      --spacing-page:    var(--space-md);
+      --spacing-section: var(--space-sm);
+      --spacing-card:    var(--space-sm);
+      --spacing-header:  var(--space-sm);
+      --spacing-footer:  var(--space-md);
+      --spacing-nav:     var(--space-xs);
+   
+      /* -----------------------------------------------------------------------
+         Espaçamento semântico — componentes
+         ----------------------------------------------------------------------- */
+      --spacing-nav-link:     var(--space-fixed-xs);
+      --spacing-nav-pill:     var(--space-fixed-2xs) var(--space-fixed-sm);
+      --spacing-footer-links: var(--space-text-xs);
+      
+      --spacing-btn:          var(--space-text-sm) var(--space-text-3xl);
+      --spacing-btn-compact:  var(--space-text-2xs) var(--space-text-xl);
+      --spacing-cta:          var(--space-text-lg) var(--space-text-4xl);
+      --spacing-input:        var(--space-text-md) var(--space-text-2xl);
+      --spacing-form-gap:     var(--space-fixed-xs);
+   
+      /* -----------------------------------------------------------------------
+         Raios semânticos
+         ----------------------------------------------------------------------- */
+      --radius-surface: var(--radius-md);
+      --radius-card:    var(--radius-sm);
+      --radius-button:  var(--radius-sm);
+      --radius-pill:    9999px;
+   
+      /* -----------------------------------------------------------------------
+         Bordas semânticas
+         ----------------------------------------------------------------------- */
+      --border-card-highlight: var(--border-width-lg) solid var(--color-border-highlight);
+      --border-focus:          var(--border-width-md) solid var(--color-border-focus);
+   
+      /* -----------------------------------------------------------------------
+         Sombras semânticas
+         ----------------------------------------------------------------------- */
+      --shadow-button: var(--shadow-sm);
+      --shadow-card:   var(--shadow-sm);
+   
+      /* -----------------------------------------------------------------------
+         Transições semânticas
+         ----------------------------------------------------------------------- */
+      --transition-theme:  var(--transition-base);
+      --transition-menu:   var(--transition-base);
+      --transition-button: var(--transition-fast);
+   
+      /* -----------------------------------------------------------------------
+         Layout semântico
+         ----------------------------------------------------------------------- */
+      --layout-container-max: var(--container-max-width);
    }
-}
+   
+   /* ==========================================================================
+      PREFERÊNCIA DO SISTEMA — TEMA ESCURO
+      Apenas os tokens semânticos globais são sobrescritos.
+      ========================================================================== */
+   
+   @media (prefers-color-scheme: dark) {
+      :root {
+         --color-text-primary:       var(--gray-50);
+         --color-background-page:    var(--color-dark-body-bg);
+         --color-background-surface: var(--color-dark-surface);
+         --color-background-nav:     var(--color-dark-nav-bg);
+      }
+   }
+   

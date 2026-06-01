@@ -194,7 +194,7 @@ body.manual-light .card {
 }
 
 body.manual-light .card__title {
-    color: var(--black) !important;
+    color: var(--color-text-heading) !important;
 }
 
 body.manual-light .card__body {
