@@ -1,3 +1,14 @@
+/*
+ * components/theme.css — Controle de temas claro e escuro
+ * Sobrescreve cores de elementos específicos nos três contextos de tema:
+ *   1. @media (prefers-color-scheme: dark) — modo escuro automático do sistema
+ *   2. body.manual-dark — modo escuro ativado manualmente pelo usuário
+ *   3. body.manual-light — modo claro ativado manualmente pelo usuário
+ * Também controla body.manual-reduced-motion para desativar animações.
+ * Altera: body, header, nav, article, .card, section h2, .section__title,
+ *          .form-label, .form-input, a, .header__actions button
+ */
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: var(--color-dark-body-bg);
@@ -35,6 +46,14 @@
     section h2 {
         color: var(--color-dark-heading);
         border-bottom-color: var(--color-dark-border-default);
+    }
+
+    .section__title {
+        border-bottom-color: var(--color-dark-border-default);
+    }
+
+    .form-label {
+        color: var(--color-dark-heading);
     }
 
     a,
@@ -80,6 +99,18 @@ body.manual-dark nav {
     background-color: var(--color-dark-nav-bg) !important;
 }
 
+body.manual-dark .header__actions button {
+    background: var(--color-dark-button-bg) !important;
+    color: var(--color-text-light) !important;
+    border: var(--border-width-md) solid var(--color-dark-button-border) !important;
+}
+
+body.manual-dark .header__actions button[aria-pressed="true"] {
+    background: var(--color-dark-button-active-bg) !important;
+    color: var(--color-dark-button-active-text) !important;
+    border-color: var(--color-border-focus) !important;
+}
+
 body.manual-dark article {
     background-color: var(--color-dark-surface) !important;
     border-left-color: var(--color-dark-border-highlight) !important;
@@ -108,6 +139,14 @@ body.manual-dark a,
 body.manual-dark .nav__list a,
 body.manual-dark article a {
     color: var(--color-dark-link) !important;
+}
+
+body.manual-dark .section__title {
+    border-bottom-color: var(--color-dark-border-default) !important;
+}
+
+body.manual-dark .form-label {
+    color: var(--color-dark-heading) !important;
 }
 
 /* LIGHT MODE */
@@ -172,6 +211,18 @@ body.manual-light .header__actions button[aria-pressed="true"] {
     background: var(--color-light-button-active-bg) !important;
     color: var(--color-light-button-active-text) !important;
     border-color: var(--color-border-focus) !important;
+}
+
+body.manual-light .form-input {
+    background: var(--white) !important;
+    color: var(--color-light-body-text) !important;
+    border-color: var(--color-light-border-default) !important;
+}
+
+body.manual-dark .form-input {
+    background: var(--color-dark-surface) !important;
+    color: var(--gray-50) !important;
+    border-color: var(--color-dark-border-default) !important;
 }
 
 /* Reduzir movimento manual */

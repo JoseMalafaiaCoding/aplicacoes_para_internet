@@ -1,9 +1,16 @@
+/*
+ * components/btn.css — Estilos base de botões
+ * Define aparência padrão para button e .btn, variantes .btn--primary
+ * e .btn--outline, e estilo de foco acessível.
+ * Altera: button, .btn, button[type="submit"], .btn--primary, .btn--outline
+ */
+
 button,
 .btn {
     cursor: pointer;
     border: none;
     border-radius: var(--radius-button);
-    padding: 0.5em 1.2em;
+    padding: var(--spacing-btn);
     font-size: var(--font-size-body);
     font-family: var(--font-body);
     transition:
@@ -41,5 +48,5 @@ button[type="submit"],
 button:focus-visible,
 .btn:focus-visible {
     outline: var(--border-focus);
-    outline-offset: 2px;
+    outline-offset: var(--border-width-md);
 }

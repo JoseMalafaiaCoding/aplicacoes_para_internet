@@ -1,3 +1,10 @@
+/*
+ * layout.css — Áreas estruturais da página
+ * Estiliza os elementos de layout: header, nav, main, footer e cards-grid.
+ * Controla posicionamento, padding, background e transições de tema.
+ * Altera: header, nav, main, footer, .cards-grid, .card--featured
+ */
+
 header {
     grid-area: header;
     background-color: var(--color-background-header);

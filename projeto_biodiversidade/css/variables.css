@@ -1,28 +1,31 @@
+/*
+ * variables.css — Fonte única de verdade para todos os tokens de design
+ * Define custom properties (var()) para: tipografia, espaçamento, cores,
+ * bordas, sombras, transições, layout e temas claro/escuro.
+ * Não aplica estilos — apenas declara valores reutilizáveis.
+ */
+
 :root {
    --font-family-base:   'Source Sans 3', Arial, sans-serif;
    --font-family-header: 'Merriweather', Georgia, serif;
 
-   --font-weight-regular: 400;
-   --font-weight-bold:    700;
+   --font-weight-semibold: 600;
+   --font-weight-bold:     700;
 
    --line-height-base: 1.6;
+   --line-height-reset: 1.5;
 
-   --font-size-xs:  clamp(0.75rem,  calc(0.70rem  + 0.23vw), 0.875rem);
    --font-size-sm:  clamp(0.875rem, calc(0.83rem  + 0.23vw), 1rem);
    --font-size-base:clamp(1rem,     calc(0.93rem  + 0.37vw), 1.25rem);
    --font-size-md:  clamp(1.25rem,  calc(1.14rem  + 0.56vw), 1.563rem);
-   --font-size-lg:  clamp(1.563rem, calc(1.40rem  + 0.83vw), 1.953rem);
    --font-size-xl:  clamp(1.953rem, calc(1.72rem  + 1.11vw), 2.441rem);
    --font-size-xxl: clamp(2.441rem, calc(2.11rem  + 1.57vw), 3.052rem);
 
    --fs-base: var(--font-size-base);
    --fs-h1:   var(--font-size-xxl);
-   --fs-h2:   var(--font-size-xl);
-   --fs-h3:   var(--font-size-lg);
 
    --green-50:  #f4f7f4;
    --green-100: #e8f5e9;
-   --green-300: #81c784;
    --green-500: #4caf50;
    --green-700: #2e7d32;
    --green-900: #1b5e20;
@@ -31,72 +34,46 @@
    --blue-700: #0d47a1;
 
    --gray-50:  #f9fafb;
-   --gray-100: #f3f4f6;
-   --gray-200: #e5e7eb;
-   --gray-300: #d1d5db;
-   --gray-400: #9ca3af;
-   --gray-500: #6b7280;
-   --gray-600: #4b5563;
-   --gray-700: #374151;
-   --gray-800: #1f2937;
    --gray-900: #111827;
 
    --white:      #ffffff;
    --black:      #000000;
    --yellow-400: #ffeb3b;
 
-   --color-primary-100: #DBEAFE;
-   --color-primary-200: #BFDBFE;
-   --color-primary-300: #93C5FD;
-   --color-primary-400: #60A5FA;
-   --color-primary-500: #2E75B6;
-   --color-primary-600: #2563EB;
-   --color-primary-700: #1D4ED8;
-   --color-primary-800: #1E40AF;
-   --color-primary-900: #1E3A8A;
-
    --space-xs: clamp(0.25rem, 1vw,  0.75rem);
    --space-sm: clamp(0.5rem,  2vw,  1.25rem);
    --space-md: clamp(1rem,    3vw,  2rem);
    --space-lg: clamp(1.5rem,  5vw,  3rem);
-   --space-xl: clamp(2rem,    7vw,  4rem);
 
-   --border-width-sm: 1px;
-   --border-width-md: 2px;
-   --border-width-lg: 5px;
+   --border-width-sm:    1px;
+   --border-width-md:    2px;
+   --border-width-lg:    5px;
+   --border-width-input: 1.5px;
+   --outline-width:      3px;
 
    --radius-sm:   4px;
    --radius-md:   8px;
-   --radius-lg:   12px;
-   --radius-full: 9999px;
 
    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
-   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
-   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+   --shadow-focus-ring: 0 0 0 3px rgba(46, 125, 50, 0.2);
 
-   --transition-fast: 0.2s ease;
-   --transition-base: 0.3s ease;
+   --transition-fast:  0.2s ease;
+   --transition-base:  0.3s ease;
+   --duration-fade-in: 2.5s;
 
    --container-max-width: 1200px;
    --sidebar-width:       220px;
    --sidebar-width-lg:    300px;
    --layout-max-width:    1400px;
 
-   --z-base:     0;
-   --z-dropdown: 100;
-   --z-sticky:   200;
-   --z-fixed:    300;
-   --z-modal:    400;
-   --z-toast:    500;
+   --z-fixed: 300;
 
    --color-background-page:    var(--green-50);
    --color-background-surface: var(--white);
    --color-background-nav:     var(--green-100);
    --color-background-header:  var(--green-700);
    --color-background-footer:  var(--gray-900);
-   --color-bg-primary:         var(--green-50);
-   --color-bg-secondary:       var(--green-100);
 
    --color-text-primary:       var(--gray-900);
    --color-text-light:         var(--white);
@@ -106,7 +83,6 @@
    --color-border-default:    var(--green-100);
    --color-border-highlight:  var(--green-500);
    --color-border-focus:      var(--yellow-400);
-   --color-border:            var(--gray-200);
 
    --color-link-default: var(--blue-700);
    --color-link-article: var(--blue-500);
@@ -114,11 +90,7 @@
    --color-action-primary:      var(--green-700);
    --color-action-primary-text: var(--white);
 
-   --color-success: var(--green-700);
-   --color-warning: var(--yellow-400);
-   --color-info:    var(--blue-500);
-   --color-danger:  #c62828;
-   --color-error:   #DC2626;
+   --color-error: #DC2626;
 
    --font-titulo:  var(--font-family-header);
    --font-corpo:   var(--font-family-base);
@@ -130,7 +102,6 @@
    --font-size-title-section: var(--font-size-xl);
    --font-size-title-card:    var(--font-size-md);
 
-   --font-weight-body:    var(--font-weight-regular);
    --font-weight-heading: var(--font-weight-bold);
 
    --line-height-body: var(--line-height-base);
@@ -141,11 +112,12 @@
    --spacing-header:   var(--space-sm);
    --spacing-footer:   var(--space-md);
    --spacing-nav:      var(--space-xs);
-   --spacing-form-gap: var(--space-sm);
+   --spacing-nav-link: 0.35rem;
 
    --radius-surface: var(--radius-md);
    --radius-card:    var(--radius-sm);
    --radius-button:  var(--radius-sm);
+   --radius-pill:    9999px;
 
    --border-card-highlight: var(--border-width-lg) solid var(--color-border-highlight);
    --border-focus:          var(--border-width-md) solid var(--color-border-focus);
@@ -157,12 +129,11 @@
    --transition-menu:   var(--transition-base);
    --transition-button: var(--transition-fast); 
 
-   --layout-sidebar-width: var(--sidebar-width);
-   --layout-sidebar-fluid: minmax(180px, 20vw);
    --layout-container-max: var(--container-max-width);
+   --touch-target-min:    44px;
 
 
-   --color-dark-body-bg: var(--gray-900);
+   --color-dark-body-bg: #111a11;
    --color-dark-body-text: #e0f2f1;
    
    --color-dark-header-bg: var(--green-900);
@@ -188,7 +159,7 @@
    --color-light-body-text: #333;
    
    --color-light-header-bg: var(--green-700);
-   --color-light-nav-bg: var(--green-100);
+   --color-light-nav-bg: var(--green-700);
    
    --color-light-surface: var(--white);
    
@@ -205,16 +176,39 @@
    
    --color-light-button-active-bg: var(--green-700);
    --color-light-button-active-text: var(--white);
+
+   --color-light-nav-hover-bg: rgba(255, 255, 255, 0.18);
+   --color-light-nav-toggle-border: rgba(255, 255, 255, 0.5);
+
+   /* TIPOGRAFIA — UTILITÁRIOS */
+   --opacity-muted:        0.9;
+   --measure-prose:        60ch;
+   --letter-spacing-caps:  0.05em;
+   --font-size-nav-mobile: 0.8rem;
+
+   /* ESPAÇAMENTO — COMPONENTES */
+   --spacing-btn:          0.5em 1.2em;
+   --spacing-btn-compact:  0.3em 0.7em;
+   --spacing-cta:          0.6em 1.5em;
+   --spacing-input:        0.55em 0.8em;
+   --spacing-form-gap:     0.35rem;
+   --spacing-nav-pill:     0.25rem 0.6rem;
+   --spacing-footer-links: 0.4em;
+
+   /* MOVIMENTO */
+   --lift-card-hover: -4px;
+
+   /* NAV — TOGGLE */
+   --size-nav-toggle:      2.5rem;
+   --size-nav-toggle-icon: 1.2rem;
+   --nav-toggle-bar-offset: 6px;
 }
 
 @media (prefers-color-scheme: dark) {
    :root {
        --color-text-primary:       var(--gray-50);
-       --color-bg-primary:         var(--gray-900);
-       --color-bg-secondary:       var(--gray-800);
-       --color-border:             var(--gray-700);
-       --color-background-page:    var(--gray-900);
-       --color-background-surface: var(--gray-800);
-       --color-background-nav:     var(--gray-800);
+       --color-background-page:    var(--color-dark-body-bg);
+       --color-background-surface: var(--color-dark-surface);
+       --color-background-nav:     var(--color-dark-nav-bg);
    }
 }

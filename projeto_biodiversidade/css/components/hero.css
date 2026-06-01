@@ -1,11 +1,18 @@
+/*
+ * components/hero.css — Componente hero (banner principal)
+ * Estiliza o bloco .hero com título, descrição e botão CTA.
+ * Usa background verde escuro, texto claro e largura máxima de prosa.
+ * Altera: .hero, .hero__title, .hero__desc, .hero__cta
+ */
+
 .hero {
     grid-area: header;
-    background-color: #2e7d32;
-    color: white;
+    background-color: var(--color-background-header);
+    color: var(--color-text-light);
     padding: var(--space-lg) var(--space-md);
     text-align: center;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
 }
 
 .hero__title {
@@ -16,25 +23,25 @@
 
 .hero__desc {
     font-size: var(--fs-base);
-    opacity: 0.9;
-    max-width: 60ch;
+    opacity: var(--opacity-muted);
+    max-width: var(--measure-prose);
     margin-inline: auto;
 }
 
 .hero__cta {
     display: inline-block;
     margin-top: var(--space-sm);
-    padding: 0.6em 1.5em;
-    background-color: #fff;
-    /* color: #2e7d32; */
-    font-weight: bold;
-    border-radius: 6px;
+    padding: var(--spacing-cta);
+    background-color: var(--color-background-surface);
+    /* color: var(--color-text-heading); */
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--radius-md);
     text-decoration: none;
-    transition: background 0.2s, color 0.2s;
+    transition: background var(--transition-fast), color var(--transition-fast);
 }
 @media (hover: hover) and (pointer: fine) {
     .hero__cta:hover {
-        background-color: #e8f5e9;
+        background-color: var(--green-100);
         text-decoration: none;
     }
 }

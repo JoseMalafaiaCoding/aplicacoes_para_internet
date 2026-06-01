@@ -1,3 +1,10 @@
+/*
+ * components/header.css — Componente de cabeçalho
+ * Estiliza o bloco .header com background verde, posicionamento dos botões
+ * de ação (tema e movimento) e layout responsivo.
+ * Altera: .header, header h1, .header-actions, .header__actions button
+ */
+
 .header {
     grid-area: header;
     position: relative;
@@ -20,7 +27,7 @@ header h1 {
     right: var(--space-xs);
     display: flex;
     gap: var(--space-xs);
-    z-index: 300;
+    z-index: var(--z-fixed);
 }
 
 .header__actions button {
@@ -28,7 +35,7 @@ header h1 {
     color: var(--color-action-primary);
     border: var(--border-width-md) solid var(--color-action-primary);
     border-radius: var(--radius-button);
-    padding: 0.3em 0.7em;
+    padding: var(--spacing-btn-compact);
     font-size: var(--font-size-title-card);
     cursor: pointer;
     transition:

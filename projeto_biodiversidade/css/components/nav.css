@@ -1,3 +1,136 @@
+/*
+ * components/nav.css — Componente de navegação lateral
+ * Inclui o botão hambúrguer (estrutura + animação X), lista de links,
+ * comportamento mobile (sempre aberto, horizontal, pills) e overrides
+ * de tema para modo escuro automático, manual-dark e manual-light.
+ * Altera: .nav__title, .nav__toggle, .nav__list, .nav__list a
+ */
+
+/* =========================================
+   NAV — BASE / STRUCTURAL
+========================================= */
+
+.nav__title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-heading);
+    font-size: var(--font-size-title-card);
+    color: var(--color-text-heading);
+    margin: 0;
+    padding: var(--space-xs) 0;
+}
+
+/* Hambúrguer — visível apenas no mobile */
+.nav__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--size-nav-toggle);
+    height: var(--size-nav-toggle);
+    padding: 0;
+    background: var(--color-background-surface);
+    color: var(--color-action-primary);
+    border: var(--border-width-md) solid var(--color-action-primary);
+    border-radius: var(--radius-button);
+    cursor: pointer;
+    position: relative;
+}
+
+.nav__toggle span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: var(--size-nav-toggle-icon);
+    height: var(--border-width-md);
+    background-color: currentColor;
+    transition: background-color var(--transition-fast);
+}
+
+.nav__toggle span::before,
+.nav__toggle span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor;
+    transition: transform var(--transition-fast);
+}
+
+.nav__toggle span::before { top: calc(-1 * var(--nav-toggle-bar-offset)); }
+.nav__toggle span::after  { top: var(--nav-toggle-bar-offset); }
+
+/* Animação X ao abrir */
+.nav__toggle--open span              { background-color: transparent; }
+.nav__toggle--open span::before      { transform: translateY(var(--nav-toggle-bar-offset))  rotate(45deg);  }
+.nav__toggle--open span::after       { transform: translateY(calc(-1 * var(--nav-toggle-bar-offset))) rotate(-45deg); }
+
+/* Lista de links — oculta no mobile por padrão */
+.nav__list {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-nav) 0 0;
+    display: none;
+    flex-direction: column;
+    gap: var(--spacing-nav-link);
+}
+
+.nav__list--open {
+    display: flex;
+}
+
+.nav__list a {
+    display: block;
+    padding: var(--spacing-nav-link) var(--space-sm);
+    color: var(--color-link-default);
+    text-decoration: none;
+    border-radius: var(--radius-button);
+    min-height: unset;
+    transition: background-color var(--transition-button);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .nav__list a:hover {
+        background-color: color-mix(in srgb, var(--color-action-primary) 12%, transparent);
+        text-decoration: none;
+    }
+}
+
+/* Mobile — menu sempre aberto e horizontal */
+@media (max-width: 767px) {
+    .nav__toggle,
+    .nav__title {
+        display: none;
+    }
+
+    .nav__list {
+        display: flex !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--spacing-nav-link);
+        margin: 0;
+        padding: var(--spacing-nav-link) var(--space-xs);
+        justify-content: center;
+    }
+
+    .nav__list a {
+        font-size: var(--font-size-nav-mobile);
+        font-weight: var(--font-weight-semibold);
+        text-align: center;
+        padding: var(--spacing-nav-pill);
+        background-color: color-mix(in srgb, var(--color-action-primary) 20%, transparent);
+        border: var(--border-width-sm) solid color-mix(in srgb, var(--color-action-primary) 40%, transparent);
+        border-radius: var(--radius-pill);
+        white-space: nowrap;
+    }
+}
+
+
+
 /* =========================================
    NAV — THEME TOKENS
 ========================================= */
@@ -33,6 +166,10 @@
 
     .nav__toggle--open span {
         background-color: transparent;
+    }
+
+    .nav__title {
+        color: var(--color-text-light);
     }
 }
 
@@ -72,6 +209,10 @@ body.manual-dark .nav__toggle--open span {
     background-color: transparent !important;
 }
 
+body.manual-dark .nav__title {
+    color: var(--color-text-light) !important;
+}
+
 /* =========================================
    MANUAL LIGHT MODE
 ========================================= */
@@ -79,29 +220,28 @@ body.manual-dark .nav__toggle--open span {
 body.manual-light .nav {
     background-color: var(--color-light-nav-bg) !important;
 }
-
+body.manual-light .nav__title {
+    color: var(--color-text-light) !important;
+}
 body.manual-light .nav__list a {
-    color: var(--color-link-default) !important;
+    color: var(--color-text-light) !important;
 }
 
 body.manual-light .nav__list a:hover {
-    background-color: color-mix(
-        in srgb,
-        var(--color-action-primary) 12%,
-        transparent
-    ) !important;
+    background-color: var(--color-light-nav-hover-bg) !important;
+    text-decoration: underline !important;
 }
 
 body.manual-light .nav__toggle {
-    background-color: var(--color-light-button-active-bg) !important;
-    color: var(--color-light-button-active-text) !important;
-    border-color: var(--color-light-button-border) !important;
+    background-color: color-mix(in srgb, var(--white) 18%, var(--color-light-nav-bg)) !important;
+    color: var(--color-text-light) !important;
+    border-color: var(--color-light-nav-toggle-border) !important;
 }
 
 body.manual-light .nav__toggle span,
 body.manual-light .nav__toggle span::before,
 body.manual-light .nav__toggle span::after {
-    background-color: var(--color-text-light) !important;
+    background-color: currentColor !important;
 }
 
 body.manual-light .nav__toggle--open span {

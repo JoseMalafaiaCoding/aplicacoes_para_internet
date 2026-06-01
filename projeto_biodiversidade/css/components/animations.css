@@ -1,8 +1,15 @@
+/*
+ * components/animations.css — Animações CSS
+ * Define keyframes e classes de animação reutilizáveis.
+ * Atualmente contém apenas fadeIn (opacidade 0 → 1).
+ * Altera: .fade-in
+ */
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
 
 .fade-in {
-    animation: fadeIn 2.5s ease-out;
+    animation: fadeIn var(--duration-fade-in) ease-out;
 }

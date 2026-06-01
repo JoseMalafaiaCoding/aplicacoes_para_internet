@@ -1,3 +1,10 @@
+/*
+ * styles.css — Ponto de entrada principal do CSS
+ * Importa todos os arquivos na ordem correta da cascata:
+ * variables → reset → base → layout → páginas → componentes → utilitários → tema
+ * Não contém estilos próprios — apenas organiza os @imports.
+ */
+
 /* 1. Settings */
 @import url('variables.css');
 

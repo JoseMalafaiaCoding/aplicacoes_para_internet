@@ -1,11 +1,19 @@
+/*
+ * utilities.css — Classes utilitárias reutilizáveis
+ * Contém estilos de componentes genéricos: seções, títulos de seção,
+ * wrapper de vídeo, formulário (labels, inputs) e lista de referências.
+ * Altera: .section, .section__title, .video-wrapper, .form-group,
+ *          .form-label, .form-input, .ref-list
+ */
+
 .section {
     margin-bottom: var(--space-lg);
 }
 
 .section__title {
-    color: #2e7d32;
+    color: var(--color-text-heading);
     margin-bottom: var(--space-sm);
-    border-bottom: 2px solid #c8e6c9;
+    border-bottom: var(--border-width-md) solid var(--color-light-border-default);
     padding-bottom: var(--space-xs);
 }
 
@@ -24,31 +32,31 @@
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: var(--spacing-form-gap);
     margin-bottom: var(--space-sm);
 }
 
 .form-label {
     font-size: var(--fs-base);
-    font-weight: 600;
-    color: #1b5e20;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-heading-dark);
 }
 
 .form-input {
-    padding: 0.55em 0.8em;
-    border: 1.5px solid #c8e6c9;
+    padding: var(--spacing-input);
+    border: var(--border-width-input) solid var(--color-light-border-default);
     border-radius: var(--radius-sm);
     font-family: var(--font-corpo);
     font-size: var(--fs-base);
-    background: #fff;
-    color: #333;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    background: var(--color-background-surface);
+    color: var(--color-light-body-text);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .form-input:focus {
     outline: none;
-    border-color: #2e7d32;
-    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+    border-color: var(--color-text-heading);
+    box-shadow: var(--shadow-focus-ring);
 }
 
 .form-input:invalid:not(:placeholder-shown) {

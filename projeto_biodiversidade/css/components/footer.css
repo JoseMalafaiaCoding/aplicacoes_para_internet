@@ -1,3 +1,11 @@
+/*
+ * components/footer.css — Componente de rodapé
+ * Estiliza o grid de colunas do footer, título, descrição, links de fontes
+ * e a barra inferior com copyright.
+ * Altera: .footer, .footer__grid, .footer__title, .footer__desc,
+ *          .footer__heading, .footer__links, .footer__bottom
+ */
+
 .footer {
     grid-area: footer;
     margin-top: var(--spacing-section);
@@ -37,7 +45,7 @@
     color: var(--color-text-light);
     font-size: var(--font-size-sm);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--letter-spacing-caps);
     margin-bottom: var(--space-xs);
 }
 
@@ -46,7 +54,7 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.4em;
+    gap: var(--spacing-footer-links);
 }
 
 .footer__links a {

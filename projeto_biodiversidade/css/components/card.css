@@ -1,3 +1,10 @@
+/*
+ * components/card.css — Componente de card
+ * Define aparência dos cards de biomas: borda, sombra, border-radius,
+ * padding e animação de hover (elevação).
+ * Altera: .card, .card__title, .card__body
+ */
+
 .card {
     background-color: var(--color-background-surface);
     border: var(--border-width-sm) solid var(--color-border-default);
@@ -12,7 +19,7 @@
 @media (hover: hover) and (pointer: fine) {
     .card:hover {
         box-shadow: var(--shadow-md);
-        transform: translateY(-4px);
+        transform: translateY(var(--lift-card-hover));
     }
 }
 .card__title {

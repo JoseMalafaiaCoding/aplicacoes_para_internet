@@ -1,3 +1,9 @@
+/*
+ * reset.css — Normalização do navegador
+ * Remove margens, paddings e comportamentos inconsistentes entre browsers.
+ * Baseia-se no reset moderno (Josh Comeau). Não usa tokens de design.
+ */
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -14,7 +20,7 @@ html {
 
 body {
     min-height: 100vh;
-    line-height: 1.5;
+    line-height: var(--line-height-reset);
     -webkit-font-smoothing: antialiased;
 }
 
